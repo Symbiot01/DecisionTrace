@@ -1,0 +1,17 @@
+# Backend build context (docker build -f Dockerfile.backend .)
+.git
+.env
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+.coverage
+htmlcov
+graph-spy-lens
+docs
+*.md
+!README.md
+data
+*.jsonl
+docker-compose.yml

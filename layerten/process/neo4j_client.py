@@ -63,6 +63,22 @@ class Neo4jClient:
             )
         logger.info("Schema initialized: %d uniqueness constraints", len(constraints))
 
+        fulltext_indexes = [
+            (
+                "search_nodes",
+                ["PullRequest", "Issue", "Discussion", "DesignDecision", "Component", "Commit"],
+                ["title", "body", "message", "evidence_excerpt", "natural_key"],
+            ),
+        ]
+        for idx_name, labels, props in fulltext_indexes:
+            label_str = "|".join(labels)
+            prop_str = ", ".join(f"n.{p}" for p in props)
+            self.run(
+                f"CREATE FULLTEXT INDEX {idx_name} IF NOT EXISTS "
+                f"FOR (n:{label_str}) ON EACH [{prop_str}]"
+            )
+        logger.info("Full-text indexes initialized")
+
     def upsert_node(self, label: str, natural_key: str, properties: dict):
         props = {k: v for k, v in properties.items() if v is not None}
         query = f"""

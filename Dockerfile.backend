@@ -1,0 +1,20 @@
+# LayerTen API (FastAPI + Neo4j)
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy package and app entry
+COPY layerten/ layerten/
+
+# Optional: copy .env for default env (secrets should be passed at runtime)
+# COPY .env .env
+
+ENV PYTHONPATH=/app
+EXPOSE 8000
+
+# Run the API (override CMD to pass env vars for Neo4j, etc.)
+CMD ["python", "-m", "uvicorn", "layerten.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

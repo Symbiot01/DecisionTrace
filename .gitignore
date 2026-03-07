@@ -3,3 +3,14 @@ data/
 __pycache__/
 *.pyc
 .venv/
+
+# graph-spy-lens (tracked as part of repo; no nested .git)
+graph-spy-lens/.git
+graph-spy-lens/node_modules
+graph-spy-lens/dist
+graph-spy-lens/dist-ssr
+graph-spy-lens/.env
+graph-spy-lens/.env.*
+graph-spy-lens/*.local
+graph-spy-lens/bun.lockb
+graph-spy-lens/.vitest

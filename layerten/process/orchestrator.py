@@ -69,6 +69,11 @@ def run_processing(
                     agentic_count += 1
                 except ImportError:
                     logger.debug("Agentic module not yet available, skipping")
+                except Exception as e:
+                    logger.error(
+                        "Agentic extraction failed for %s: %s",
+                        event.get("natural_key"), e,
+                    )
 
             save_checkpoint(idx)
             processed += 1

@@ -23,6 +23,8 @@ A system that turns a GitHub repository's scattered knowledge — commits, PRs, 
 11. [Layer10 Adaptation](#layer10-adaptation)
 12. [Reproduction Instructions](#reproduction-instructions)
 
+**For the Layer10 take-home submission:** See **[docs/LAYER10_TAKEHOME_WRITEUP.md](docs/LAYER10_TAKEHOME_WRITEUP.md)** for the formal write-up that maps to the task PDF (corpus, extraction, deduplication, memory graph, retrieval, visualization, Layer10 adaptation) and answers how we tackle deduplication, conflicts, reversibility, and grounding.
+
 ---
 
 ## Architecture Overview
@@ -1091,6 +1093,8 @@ This section explains how the system built for a GitHub corpus adapts to Layer10
 
 ## Reproduction Instructions
 
+Pipeline order: **Fetch** → **Merge** → **Sort** → **Process** → **API** → **Frontend**. Full write-up aligned to the Layer10 PDF: **docs/LAYER10_TAKEHOME_WRITEUP.md**.
+
 ### Prerequisites
 
 - Python 3.11+
@@ -1126,40 +1130,34 @@ cp .env.example .env
 ### Run End-to-End
 
 ```bash
-# 1. Bootstrap: fetch all historical data from GitHub
-python -m layerten.ingest bootstrap --repo owner/repo
+# 1. Fetch: bootstrap — get all historical data from GitHub (clone + API)
+python -m layerten.fetch.bootstrap
 
-# 2. Extract: run deterministic + LLM extraction
-python -m layerten.extract run
+# 2. Merge: canonicalize and merge raw events (commits, PRs, issues, persons, etc.)
+python -m layerten.merge
 
-# 3. Dedup: canonicalize entities and merge claims
-python -m layerten.dedup run
+# 3. Sort: build timeline (topological commits + chronological others) → data/unified/timeline.jsonl
+python -m layerten.sort
 
-# 4. Load: write to Neo4j
-python -m layerten.graph load
+# 4. Process: extract into Neo4j (deterministic + optional agentic LLM). Use --reset to wipe and re-run.
+python -m layerten.process --reset
 
-# 5. Start the API + visualization server
-python -m layerten.api serve --port 8000
+# 5. Start the API
+python -m layerten.api
 
-# 6. Open visualization
-# Navigate to http://localhost:8000/viz
+# 6. Open the frontend (graph-spy-lens) and point it at http://localhost:8000
+# See graph-spy-lens/README.md and docs/FRONTEND_GUIDE.md
 ```
 
 ### Run Incremental Updates
 
-```bash
-# Start webhook listener for real-time updates
-python -m layerten.ingest webhook --port 9000
-
-# Or poll for new events
-python -m layerten.ingest poll --repo owner/repo --since last
-```
+Re-run fetch to pull new data, then merge, sort, and process. Processing is incremental by default (uses `data/process_checkpoint.json`). Use `python -m layerten.process` without `--reset` to resume; use `--reset` to wipe the graph and reprocess from scratch.
 
 ### Example Queries
 
 ```bash
-# Retrieval API
-curl "http://localhost:8000/query?q=Why+did+we+refactor+the+auth+module"
-curl "http://localhost:8000/query?q=Who+owns+the+payments+component&branch=main"
-curl "http://localhost:8000/query?q=What+decisions+were+rejected+in+2025"
+# Retrieval API (after starting the API with python -m layerten.api)
+curl "http://localhost:8000/api/query?q=Why+did+we+refactor+the+auth+module&limit=5"
+curl "http://localhost:8000/api/query?q=Who+owns+the+payments+component&limit=5"
+curl "http://localhost:8000/api/decisions?limit=20"
 ```

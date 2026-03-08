@@ -9,7 +9,7 @@ RUN npm ci
 COPY . .
 
 # Pass API base URL at build time (e.g. http://backend:8000 for same-host backend)
-ARG VITE_API_BASE=http://localhost:8000
+ARG VITE_API_BASE=https://layertenbackend.sahilpatel.wiki
 ENV VITE_API_BASE=${VITE_API_BASE}
 
 RUN npm run build

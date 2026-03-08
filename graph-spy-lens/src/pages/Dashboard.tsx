@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api, type StatsData } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EntityChip } from "@/components/EntityChip";
 import {
@@ -40,22 +39,6 @@ export default function Dashboard() {
         <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
         <p className="text-sm text-muted-foreground mt-1">Knowledge graph overview</p>
       </div>
-
-      {/* Processing Progress */}
-      <Card>
-        <CardHeader className="pb-3">
-          <CardTitle className="text-sm font-medium">Processing Progress</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center justify-between text-sm mb-2">
-            <span className="text-muted-foreground">
-              {data.processing.checkpoint_index.toLocaleString()} / {data.processing.total_events.toLocaleString()} events
-            </span>
-            <span className="font-mono text-sm">{data.processing.percent_complete.toFixed(1)}%</span>
-          </div>
-          <Progress value={data.processing.percent_complete} className="h-2" />
-        </CardContent>
-      </Card>
 
       {/* Node counts */}
       <div>

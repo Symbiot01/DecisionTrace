@@ -1,4 +1,4 @@
-import { BarChart3, MessageCircle, Search, Share2, GitBranch, Users, Database } from "lucide-react";
+import { BarChart3, MessageCircle, Search, Share2, GitBranch, Users, Database, FileText } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import {
@@ -20,6 +20,7 @@ const items = [
   { title: "Graph Explorer", url: "/graph", icon: Share2 },
   { title: "Decisions", url: "/decisions", icon: GitBranch },
   { title: "Contributors", url: "/contributors", icon: Users },
+  { title: "System Design", url: "/design", icon: FileText },
 ];
 
 export function AppSidebar() {

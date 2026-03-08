@@ -11,6 +11,7 @@ import GraphExplorer from "@/pages/GraphExplorer";
 import DecisionsPage from "@/pages/DecisionsPage";
 import ContributorsPage from "@/pages/ContributorsPage";
 import EntityDetailPage from "@/pages/EntityDetailPage";
+import DesignPage from "@/pages/DesignPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/decisions" element={<DecisionsPage />} />
             <Route path="/contributors" element={<ContributorsPage />} />
             <Route path="/entity/*" element={<EntityDetailPage />} />
+            <Route path="/design" element={<DesignPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

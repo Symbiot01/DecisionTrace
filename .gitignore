@@ -14,3 +14,6 @@ graph-spy-lens/.env.*
 graph-spy-lens/*.local
 graph-spy-lens/bun.lockb
 graph-spy-lens/.vitest
+
+# Eval run artifacts (may contain retrieved excerpts)
+evals/runs/

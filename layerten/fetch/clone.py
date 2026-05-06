@@ -22,9 +22,29 @@ def _run_git(args: list[str], cwd: str | Path | None = None) -> str:
     return result.stdout
 
 
+def _normalize_remote(url: str) -> str:
+    """Compare remotes ignoring scheme, credentials, and a trailing .git."""
+    cleaned = url.strip().rstrip("/")
+    if cleaned.endswith(".git"):
+        cleaned = cleaned[:-4]
+    for prefix in ("https://", "http://", "ssh://", "git@"):
+        if cleaned.startswith(prefix):
+            cleaned = cleaned[len(prefix) :]
+            break
+    return cleaned.replace(":", "/").lower()
+
+
 def clone_repo(repo_url: str, dest: Path) -> Path:
     """Clone with --mirror if fresh, or fetch --all if already exists."""
     if (dest / "HEAD").exists():
+        # Reusing a clone of a *different* repo silently mixes two histories
+        # into one graph, so verify the origin before fetching into it.
+        existing = _run_git(["remote", "get-url", "origin"], cwd=dest).strip()
+        if _normalize_remote(existing) != _normalize_remote(repo_url):
+            raise RuntimeError(
+                f"{dest} is a clone of {existing!r}, not {repo_url!r}. "
+                f"Remove the directory or point TARGET_REPO at the existing repo."
+            )
         logger.info("Repo already cloned at %s, fetching updates...", dest)
         _run_git(["fetch", "--all"], cwd=dest)
     else:

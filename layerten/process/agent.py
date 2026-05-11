@@ -4,10 +4,10 @@ import json
 import logging
 import time
 
-from google import genai
 from google.genai import types
 
-from layerten.config import GEMINI_API_KEY, GEMINI_MODEL
+from layerten.config import GEMINI_API_KEY, GEMINI_MODEL_EXTRACTION as GEMINI_MODEL
+from layerten.gemini_pool import generate_content_limited
 from layerten.process.bootstrap import ReferenceData
 from layerten.process.neo4j_client import Neo4jClient
 from layerten.process.prompts import SYSTEM_PROMPT, format_event_prompt
@@ -223,7 +223,8 @@ def agentic_extract(
     max_turns: int = 10,
 ):
     """Run the Gemini agentic extraction loop for a single event."""
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    if not GEMINI_API_KEY:
+        raise RuntimeError("GEMINI_API_KEY is not set")
 
     config = types.GenerateContentConfig(
         system_instruction=SYSTEM_PROMPT,
@@ -249,7 +250,7 @@ def agentic_extract(
 
     for turn in range(max_turns):
         try:
-            response = client.models.generate_content(
+            response = generate_content_limited(
                 model=GEMINI_MODEL,
                 contents=contents,
                 config=config,
@@ -262,8 +263,44 @@ def agentic_extract(
                 continue
             break
 
-        candidate = response.candidates[0]
-        parts = candidate.content.parts
+        # A blocked, empty, or token-truncated response still returns a
+        # candidate, but with content.parts set to None. Iterating it raised
+        # "'NoneType' object is not iterable" and silently dropped ~30% of
+        # events, so treat it as a retryable empty turn instead.
+        candidates = response.candidates or []
+        if not candidates:
+            logger.warning(
+                "Gemini returned no candidates for %s (turn %d, prompt_feedback=%s)",
+                nk,
+                turn,
+                getattr(response, "prompt_feedback", None),
+            )
+            continue
+
+        candidate = candidates[0]
+        content = getattr(candidate, "content", None)
+        parts = getattr(content, "parts", None) if content is not None else None
+        if not parts:
+            finish_reason = getattr(candidate, "finish_reason", None)
+            # An empty turn after the agent has already called tools is just how
+            # it signals completion. Before any tool call it means nothing was
+            # extracted, which is worth one more attempt.
+            if total_tool_calls:
+                logger.debug(
+                    "Empty final turn for %s after %d tool calls (finish_reason=%s)",
+                    nk,
+                    total_tool_calls,
+                    finish_reason,
+                )
+                break
+            logger.warning(
+                "Gemini returned no content parts for %s before any tool call "
+                "(turn %d, finish_reason=%s)",
+                nk,
+                turn,
+                finish_reason,
+            )
+            continue
 
         function_calls = [p for p in parts if p.function_call]
 

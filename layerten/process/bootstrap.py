@@ -7,6 +7,8 @@ from pathlib import Path
 
 from layerten.config import (
     PROCESS_CHECKPOINT_PATH,
+    REPO_NAME,
+    TARGET_REPO,
     UNIFIED_BRANCHES_PATH,
     UNIFIED_FILE_TREE_PATH,
     UNIFIED_LABELS_PATH,
@@ -69,13 +71,13 @@ def build_timeline_index(timeline_path: Path = UNIFIED_TIMELINE_PATH) -> dict:
 def create_repository_node(neo4j: Neo4jClient):
     neo4j.upsert_node(
         "Repository",
-        "567-labs/instructor",
+        TARGET_REPO,
         {
-            "name": "instructor",
-            "url": "https://github.com/567-labs/instructor",
+            "name": REPO_NAME,
+            "url": f"https://github.com/{TARGET_REPO}",
         },
     )
-    logger.info("Repository node created/updated")
+    logger.info("Repository node created/updated for %s", TARGET_REPO)
 
 
 def load_checkpoint() -> int:

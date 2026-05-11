@@ -1,7 +1,10 @@
 import logging
+import threading
+from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-import httpx
-
+from layerten import config
+from layerten.fetch.http_client import get_graphql_client
 from layerten.fetch.queries import (
     DISCUSSION_COMMENTS_SUBPAGE_QUERY,
     DISCUSSION_QUERY,
@@ -22,39 +25,56 @@ logger = logging.getLogger(__name__)
 
 GRAPHQL_URL = "https://api.github.com/graphql"
 
+# Cap concurrent GraphQL HTTP calls across parallel bootstrap + enrich workers
+_graphql_sema: threading.Semaphore | None = None
+_graphql_sema_lock = threading.Lock()
+
+# on_page(nodes, resume_cursor_or_None) — resume_cursor is endCursor after this page
+PageCallback = Callable[[list[dict], str | None], None]
+
+
+def _get_graphql_sema() -> threading.Semaphore:
+    global _graphql_sema
+    with _graphql_sema_lock:
+        if _graphql_sema is None:
+            n = max(1, int(getattr(config, "GITHUB_MAX_CONCURRENCY", 8)))
+            _graphql_sema = threading.Semaphore(n)
+        return _graphql_sema
+
 
 def graphql_request(query: str, variables: dict, token: str) -> dict:
     """Execute a single GraphQL request with retry/rate-limit handling."""
     headers = {"Authorization": f"Bearer {token}"}
+    client = get_graphql_client()
+    sema = _get_graphql_sema()
 
-    with httpx.Client(timeout=60) as client:
-        for attempt in range(MAX_RETRIES):
+    for attempt in range(MAX_RETRIES):
+        with sema:
             resp = client.post(
                 GRAPHQL_URL,
                 json={"query": query, "variables": variables},
                 headers=headers,
             )
 
-            if is_rate_limited(resp):
+        if is_rate_limited(resp):
+            handle_rate_limit_error(resp, attempt)
+            continue
+
+        resp.raise_for_status()
+        check_rate_limit(resp)
+
+        data = resp.json()
+        if "errors" in data:
+            errors = data["errors"]
+            error_types = [e.get("type", "") for e in errors]
+            if "RATE_LIMITED" in error_types:
                 handle_rate_limit_error(resp, attempt)
                 continue
+            raise RuntimeError(f"GraphQL errors: {errors}")
 
-            resp.raise_for_status()
-            check_rate_limit(resp)
+        return data["data"]
 
-            data = resp.json()
-            if "errors" in data:
-                errors = data["errors"]
-                error_types = [e.get("type", "") for e in errors]
-                if "RATE_LIMITED" in error_types:
-                    handle_rate_limit_error(resp, attempt)
-                    continue
-                raise RuntimeError(f"GraphQL errors: {errors}")
-
-            return data["data"]
-
-    raise RuntimeError(f"Exhausted retries for GraphQL request")
-
+    raise RuntimeError("Exhausted retries for GraphQL request")
 
 def _paginate_nested_reviews(
     owner: str, repo: str, pr_number: int, token: str, after_cursor: str
@@ -167,13 +187,46 @@ def _enrich_discussion(disc: dict, owner: str, repo: str, token: str) -> dict:
     return disc
 
 
+def _enrich_page_parallel(
+    nodes: list[dict],
+    enrich_fn,
+    owner: str,
+    repo: str,
+    token: str,
+) -> list[dict]:
+    """Enrich page nodes in parallel while preserving order."""
+    if not nodes:
+        return []
+    workers = min(
+        len(nodes),
+        max(1, int(getattr(config, "GITHUB_MAX_CONCURRENCY", 8))),
+    )
+    if workers == 1 or len(nodes) == 1:
+        return [enrich_fn(n, owner, repo, token) for n in nodes]
+
+    enriched: list[dict | None] = [None] * len(nodes)
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {
+            pool.submit(enrich_fn, node, owner, repo, token): idx
+            for idx, node in enumerate(nodes)
+        }
+        for fut in as_completed(futures):
+            idx = futures[fut]
+            enriched[idx] = fut.result()
+    return [n for n in enriched if n is not None]
+
+
 def fetch_all_prs(
-    owner: str, repo: str, token: str, start_cursor: str | None = None
+    owner: str,
+    repo: str,
+    token: str,
+    start_cursor: str | None = None,
+    on_page: PageCallback | None = None,
 ) -> tuple[list[dict], str | None]:
     """
     Fetch all PRs with nested reviews, comments, and timeline.
     Returns (prs_list, last_cursor_or_None).
-    Yields enriched PR dicts with all sub-pages resolved.
+    Outer pages stay sequential; nested enrichment is parallel per page.
     """
     all_prs: list[dict] = []
     cursor = start_cursor
@@ -186,28 +239,35 @@ def fetch_all_prs(
 
         connection = data["repository"]["pullRequests"]
         total = connection.get("totalCount", "?")
-        nodes = connection["nodes"]
-
-        for pr in nodes:
-            pr = _enrich_pr(pr, owner, repo, token)
-            all_prs.append(pr)
-
-        fetched_so_far = len(all_prs)
-        logger.info(
-            "PRs: page %d — fetched %d/%s total", page_num, fetched_so_far, total
+        nodes = _enrich_page_parallel(
+            connection["nodes"], _enrich_pr, owner, repo, token
         )
+        all_prs.extend(nodes)
 
         if connection["pageInfo"]["hasNextPage"]:
             cursor = connection["pageInfo"]["endCursor"]
         else:
             cursor = None
+
+        if on_page:
+            on_page(nodes, cursor)
+
+        logger.info(
+            "PRs: page %d — fetched %d/%s total", page_num, len(all_prs), total
+        )
+
+        if cursor is None:
             break
 
     return all_prs, cursor
 
 
 def fetch_all_issues(
-    owner: str, repo: str, token: str, start_cursor: str | None = None
+    owner: str,
+    repo: str,
+    token: str,
+    start_cursor: str | None = None,
+    on_page: PageCallback | None = None,
 ) -> tuple[list[dict], str | None]:
     """Fetch all issues (excluding PRs) with nested comments and timeline."""
     all_issues: list[dict] = []
@@ -221,28 +281,36 @@ def fetch_all_issues(
 
         connection = data["repository"]["issues"]
         total = connection.get("totalCount", "?")
-        nodes = connection["nodes"]
-
-        for issue in nodes:
-            issue = _enrich_issue(issue, owner, repo, token)
-            all_issues.append(issue)
-
-        fetched_so_far = len(all_issues)
-        logger.info(
-            "Issues: page %d — fetched %d/%s total", page_num, fetched_so_far, total
+        nodes = _enrich_page_parallel(
+            connection["nodes"], _enrich_issue, owner, repo, token
         )
+        all_issues.extend(nodes)
 
         if connection["pageInfo"]["hasNextPage"]:
             cursor = connection["pageInfo"]["endCursor"]
         else:
             cursor = None
+
+        if on_page:
+            on_page(nodes, cursor)
+
+        logger.info(
+            "Issues: page %d — fetched %d/%s total",
+            page_num, len(all_issues), total,
+        )
+
+        if cursor is None:
             break
 
     return all_issues, cursor
 
 
 def fetch_all_discussions(
-    owner: str, repo: str, token: str, start_cursor: str | None = None
+    owner: str,
+    repo: str,
+    token: str,
+    start_cursor: str | None = None,
+    on_page: PageCallback | None = None,
 ) -> tuple[list[dict], str | None]:
     """Fetch all discussions with nested comments and replies."""
     all_discussions: list[dict] = []
@@ -256,22 +324,25 @@ def fetch_all_discussions(
 
         connection = data["repository"]["discussions"]
         total = connection.get("totalCount", "?")
-        nodes = connection["nodes"]
-
-        for disc in nodes:
-            disc = _enrich_discussion(disc, owner, repo, token)
-            all_discussions.append(disc)
-
-        fetched_so_far = len(all_discussions)
-        logger.info(
-            "Discussions: page %d — fetched %d/%s total",
-            page_num, fetched_so_far, total,
+        nodes = _enrich_page_parallel(
+            connection["nodes"], _enrich_discussion, owner, repo, token
         )
+        all_discussions.extend(nodes)
 
         if connection["pageInfo"]["hasNextPage"]:
             cursor = connection["pageInfo"]["endCursor"]
         else:
             cursor = None
+
+        if on_page:
+            on_page(nodes, cursor)
+
+        logger.info(
+            "Discussions: page %d — fetched %d/%s total",
+            page_num, len(all_discussions), total,
+        )
+
+        if cursor is None:
             break
 
     return all_discussions, cursor

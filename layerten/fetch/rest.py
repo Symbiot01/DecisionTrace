@@ -1,7 +1,6 @@
 import logging
 
-import httpx
-
+from layerten.fetch.http_client import get_rest_client
 from layerten.fetch.rate_limiter import (
     MAX_RETRIES,
     check_rate_limit,
@@ -33,34 +32,34 @@ def fetch_paginated(
     params = dict(params or {})
     params["per_page"] = per_page
     page = 1
+    client = get_rest_client()
 
-    with httpx.Client(timeout=30) as client:
-        while True:
-            params["page"] = page
+    while True:
+        params["page"] = page
 
-            for attempt in range(MAX_RETRIES):
-                resp = client.get(url, headers=_headers(token), params=params)
+        for attempt in range(MAX_RETRIES):
+            resp = client.get(url, headers=_headers(token), params=params)
 
-                if is_rate_limited(resp):
-                    handle_rate_limit_error(resp, attempt)
-                    continue
+            if is_rate_limited(resp):
+                handle_rate_limit_error(resp, attempt)
+                continue
 
-                resp.raise_for_status()
-                check_rate_limit(resp)
-                break
-            else:
-                raise RuntimeError(f"Exhausted retries fetching {url} page {page}")
+            resp.raise_for_status()
+            check_rate_limit(resp)
+            break
+        else:
+            raise RuntimeError(f"Exhausted retries fetching {url} page {page}")
 
-            data = resp.json()
-            if not data:
-                break
+        data = resp.json()
+        if not data:
+            break
 
-            results.extend(data)
-            logger.debug("Fetched page %d from %s (%d items)", page, url, len(data))
+        results.extend(data)
+        logger.debug("Fetched page %d from %s (%d items)", page, url, len(data))
 
-            if len(data) < per_page:
-                break
-            page += 1
+        if len(data) < per_page:
+            break
+        page += 1
 
     return results
 

@@ -36,8 +36,8 @@ export default function GraphExplorer() {
     queryKey: ["graph", centerKey],
     queryFn: () =>
       centerKey
-        ? api.getGraphNeighborhood(centerKey, 2, 80)
-        : api.getGraphOverview(100),
+        ? api.getGraphNeighborhood(centerKey, 2, 5000)
+        : api.getGraphOverview(5000),
   });
 
   const filteredData = useMemo(() => {

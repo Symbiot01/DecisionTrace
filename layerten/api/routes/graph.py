@@ -20,7 +20,7 @@ def _to_str(val: Any) -> Any:
 
 
 @router.get("/graph/overview")
-async def graph_overview(max_nodes: int = Query(100, ge=10, le=500)):
+async def graph_overview(max_nodes: int = Query(5000, ge=10, le=5000)):
     """Sampled subgraph: all Components + their DesignDecisions + connected PRs/Persons."""
     db = get_neo4j()
 
@@ -95,7 +95,7 @@ async def graph_overview(max_nodes: int = Query(100, ge=10, le=500)):
 async def graph_neighborhood(
     natural_key: str,
     depth: int = Query(2, ge=1, le=3),
-    max_nodes: int = Query(50, ge=5, le=200),
+    max_nodes: int = Query(500, ge=5, le=5000),
 ):
     """Subgraph around a specific node."""
     db = get_neo4j()

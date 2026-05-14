@@ -1,4 +1,4 @@
-import { BarChart3, MessageCircle, Search, Share2, GitBranch, Users, Database, FileText } from "lucide-react";
+import { BarChart3, MessageCircle, Search, Share2, GitBranch, Users, Database, FileText, PlayCircle } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import {
@@ -15,6 +15,7 @@ import {
 
 const items = [
   { title: "Dashboard", url: "/", icon: BarChart3 },
+  { title: "Process", url: "/process", icon: PlayCircle },
   { title: "Ask", url: "/ask", icon: MessageCircle },
   { title: "Search", url: "/search", icon: Search },
   { title: "Graph Explorer", url: "/graph", icon: Share2 },

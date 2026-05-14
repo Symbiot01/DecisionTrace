@@ -163,6 +163,48 @@ export interface AskResponse {
   metadata: { sources_used: number; processing_ms: number };
 }
 
+export interface PipelineMetrics {
+  stage_detail: string;
+  events_processed: number;
+  events_skipped: number;
+  agentic_ok: number;
+  agentic_failed: number;
+  rate_per_sec: number;
+  elapsed_s: number;
+}
+
+export interface PipelineJobStatus {
+  job_id: string;
+  repo: string;
+  status: string;
+  stage: string;
+  progress_pct: number;
+  metrics: PipelineMetrics;
+  error: string | null;
+  started_at: string | null;
+  finished_at: string | null;
+  result: Record<string, unknown>;
+}
+
+async function postApi<T>(path: string, body: unknown): Promise<T> {
+  const res = await fetch(`${API_BASE}${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    let detail = `API error: ${res.status}`;
+    try {
+      const data = await res.json();
+      if (data?.detail) detail = typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail);
+    } catch {
+      /* ignore */
+    }
+    throw new Error(detail);
+  }
+  return res.json();
+}
+
 // API functions
 export const api = {
   getStats: () => fetchApi<StatsData>("/api/stats"),
@@ -175,14 +217,24 @@ export const api = {
 
   getEntity: (key: string) => fetchApi<EntityDetail>(`/api/entity/${encodeKey(key)}`),
 
-  getGraphOverview: (max_nodes = 100) =>
+  getGraphOverview: (max_nodes = 5000) =>
     fetchApi<GraphData>("/api/graph/overview", { max_nodes }),
 
-  getGraphNeighborhood: (key: string, depth = 1, max_nodes = 50) =>
+  getGraphNeighborhood: (key: string, depth = 1, max_nodes = 500) =>
     fetchApi<GraphData>(`/api/graph/neighborhood/${encodeKey(key)}`, { depth, max_nodes }),
 
   getDecisions: (params?: { component?: string; status?: string; limit?: number; offset?: number }) =>
     fetchApi<DecisionsResponse>("/api/decisions", params as Record<string, string | number | undefined>),
 
   getContributors: (limit = 20) => fetchApi<ContributorsResponse>("/api/contributors", { limit }),
+
+  startPipelineJob: (body: {
+    repo_url: string;
+    full?: boolean;
+    max_events?: number | null;
+    skip_agentic?: boolean;
+    reset?: boolean;
+  }) => postApi<{ job_id: string }>("/api/pipeline/jobs", body),
+
+  getPipelineJob: (jobId: string) => fetchApi<PipelineJobStatus>(`/api/pipeline/jobs/${jobId}`),
 };

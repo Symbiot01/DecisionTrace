@@ -31,7 +31,10 @@ def expand_candidate(
             m.title AS object_title,
             m.display_name AS object_display_name,
             startNode(r) = n AS outgoing
-        ORDER BY r.confidence DESC
+        // Deterministic MODIFIES edges all carry confidence 1.0 and no excerpt,
+        // so ordering by confidence alone lets a heavily-touched file or commit
+        // push its only citable claim past the limit. Evidence ranks first.
+        ORDER BY (r.evidence_excerpt IS NOT NULL) DESC, r.confidence DESC
         LIMIT $lim
         """,
         nk=natural_key,

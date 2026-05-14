@@ -5,7 +5,9 @@ from typing import Any
 from layerten import config
 from layerten.process.neo4j_client import Neo4jClient
 
-GITHUB_BASE = f"https://github.com/{config.TARGET_REPO}"
+
+def github_base() -> str:
+    return f"https://github.com/{config.TARGET_REPO}"
 
 
 def github_url(natural_key: str) -> str | None:
@@ -16,13 +18,14 @@ def github_url(natural_key: str) -> str | None:
     if len(parts) != 2:
         return None
     prefix, ident = parts
+    base = github_base()
     urls = {
-        "pr": f"{GITHUB_BASE}/pull/{ident}",
-        "issue": f"{GITHUB_BASE}/issues/{ident}",
-        "commit": f"{GITHUB_BASE}/commit/{ident}",
-        "discussion": f"{GITHUB_BASE}/discussions/{ident}",
-        "tag": f"{GITHUB_BASE}/releases/tag/{ident}",
-        "file": f"{GITHUB_BASE}/blob/main/{ident}",
+        "pr": f"{base}/pull/{ident}",
+        "issue": f"{base}/issues/{ident}",
+        "commit": f"{base}/commit/{ident}",
+        "discussion": f"{base}/discussions/{ident}",
+        "tag": f"{base}/releases/tag/{ident}",
+        "file": f"{base}/blob/main/{ident}",
         "person": f"https://github.com/{ident}",
     }
     return urls.get(prefix)
@@ -36,15 +39,60 @@ def _to_str(val: Any) -> str | None:
     return str(val)
 
 
-def format_result(rank: int, item: dict) -> dict:
+def _incident_claims(claims: list[dict], natural_key: str) -> list[dict]:
+    """Keep only claims that are actually about this node.
+
+    Graph expansion appends 2-hop claims to the same list, and those describe a
+    *neighbour*. Citing one attributes a neighbour's evidence to this result --
+    e.g. a result for pr:922 carrying an excerpt sourced from issue:20.
+    """
+    if not natural_key:
+        return claims
+    incident = [
+        c
+        for c in claims
+        if c.get("hop") != 2
+        and natural_key in (c.get("subject_key"), c.get("object_key"))
+    ]
+    return incident or []
+
+
+def _select_claim(
+    claims: list[dict], keywords: list[str] | None, natural_key: str = ""
+) -> dict | None:
+    """Pick the claim whose evidence best answers the question.
+
+    Claims arrive ordered by confidence, which says nothing about relevance, so
+    taking the first one makes a correctly retrieved node cite the wrong artifact.
+    """
+    claims = _incident_claims(claims, natural_key)
+    if not claims:
+        return None
+    with_excerpt = [c for c in claims if c.get("evidence_excerpt")]
+    if not with_excerpt:
+        return claims[0]
+    if not keywords:
+        return with_excerpt[0]
+
+    terms = [k.lower() for k in keywords if k]
+
+    def relevance(claim: dict) -> tuple[int, float]:
+        blob = str(claim.get("evidence_excerpt") or "").lower()
+        hits = sum(1 for t in terms if t in blob)
+        return (hits, float(claim.get("confidence") or 0.0))
+
+    return max(with_excerpt, key=relevance)
+
+
+def format_result(rank: int, item: dict, keywords: list[str] | None = None) -> dict:
     """Format a single ranked result into the API response shape."""
     nk = item["natural_key"]
     props = item["props"]
     claims = item.get("claims", [])
 
-    best_claim = claims[0] if claims else None
+    best_claim = _select_claim(claims, keywords, nk)
     supersedes_info = None
-    for c in claims:
+    for c in _incident_claims(claims, nk):
         if c.get("predicate") == "SUPERSEDES":
             supersedes_info = {
                 "natural_key": c.get("object_key"),
@@ -65,6 +113,18 @@ def format_result(rank: int, item: dict) -> dict:
                 "source_url": github_url(node_source),
                 "timestamp": _to_str(props.get("created_at")),
             }
+        else:
+            # Extraction only attaches excerpts to decisions, so a PR or issue
+            # returned as the answer had no citable evidence at all. The artifact
+            # is its own source: cite it by key and quote its own text.
+            own_text = props.get("title") or props.get("message") or props.get("body")
+            if own_text:
+                evidence = {
+                    "excerpt": str(own_text).strip()[:400],
+                    "source_key": nk,
+                    "source_url": github_url(nk),
+                    "timestamp": _to_str(props.get("created_at")),
+                }
 
     subject_entity: dict = {
         "type": item["label"],
@@ -109,7 +169,14 @@ def _format_claim(claim: dict) -> dict:
 
 
 def _format_evidence(claim: dict, props: dict) -> dict:
-    source_key = claim.get("evidence_source") or ""
+    # An excerpt with no source attribution is uncitable, so fall back to the
+    # node's own provenance rather than emitting an empty source key.
+    source_key = (
+        claim.get("evidence_source")
+        or props.get("evidence_source")
+        or props.get("natural_key")
+        or ""
+    )
     return {
         "excerpt": claim.get("evidence_excerpt"),
         "source_key": source_key,
@@ -125,9 +192,10 @@ def format_context_pack(
     total_candidates: int,
     processing_ms: int,
     db: Neo4jClient,
+    keywords: list[str] | None = None,
 ) -> dict:
     """Build the full context pack response."""
-    results = [format_result(i + 1, item) for i, item in enumerate(ranked)]
+    results = [format_result(i + 1, item, keywords) for i, item in enumerate(ranked)]
 
     conflicts = _detect_conflicts(ranked)
 

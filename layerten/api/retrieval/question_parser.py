@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import re
@@ -8,7 +9,7 @@ from dataclasses import dataclass, field
 from google import genai
 from google.genai import types
 
-from layerten import config
+from layerten import config, gemini_pool
 
 logger = logging.getLogger(__name__)
 
@@ -30,25 +31,30 @@ class ParsedQuestion:
     entity_refs: list[str] = field(default_factory=list)
 
 
-_gemini_client: genai.Client | None = None
-
-
 def _get_client() -> genai.Client:
-    global _gemini_client
-    if _gemini_client is None:
-        _gemini_client = genai.Client(api_key=config.GEMINI_API_KEY)
-    return _gemini_client
+    # Shared pool client, which carries an explicit request timeout. A bare
+    # genai.Client has none, so a stalled call blocked the event loop and hung
+    # the whole API until every later request timed out.
+    return gemini_pool.get_client()
 
 
 _SYSTEM = """You parse user questions about a GitHub repository knowledge graph.
 Extract intent, keywords, and entity references. Output ONLY a single-line JSON object, no markdown.
 
-intent: entity_lookup | history | decision | who | why | what_changed | general
+intent: entity_lookup | history | decision | who | why | what_changed | current_state | general
 keywords: search terms, lowercase, no stop words
 entity_refs: natural keys found in the question, e.g. "pr:42", "issue:10", "person:jxnl"
 
+Use current_state when the question asks what the behaviour is today ("how does X
+work now", "what is the current way to Y"). Use what_changed or history only when
+the question asks for the sequence of changes over time ("how did X evolve",
+"what changed in Y"). A question containing "now" is usually current_state.
+
 Example input: "Why did we switch to Pydantic V2?"
-Example output: {"intent":"decision","keywords":["pydantic","v2","switch"],"entity_refs":[]}"""
+Example output: {"intent":"decision","keywords":["pydantic","v2","switch"],"entity_refs":[]}
+
+Example input: "How are column options specified now?"
+Example output: {"intent":"current_state","keywords":["column","options","specified"],"entity_refs":[]}"""
 
 
 def _keyword_fallback(question: str) -> ParsedQuestion:
@@ -86,17 +92,29 @@ async def parse_question(question: str) -> ParsedQuestion:
 
     try:
         client = _get_client()
-        resp = client.models.generate_content(
-            model="gemini-2.0-flash",
+        # The SDK call is synchronous. Called inline it blocks the event loop,
+        # so one slow parse stalls every other in-flight request.
+        resp = await asyncio.to_thread(
+            client.models.generate_content,
+            model=config.GEMINI_MODEL_PARSER,
             contents=f"Parse this question: {question}",
             config=types.GenerateContentConfig(
                 system_instruction=_SYSTEM,
                 temperature=0.0,
-                max_output_tokens=300,
+                # Thinking models spend this budget on reasoning tokens first.
+                # At 300 the budget was exhausted before any text was emitted,
+                # so parsing silently fell back to keywords and lost the intent.
+                max_output_tokens=512,
+                thinking_config=types.ThinkingConfig(thinking_budget=0),
                 response_mime_type="application/json",
             ),
         )
-        text = resp.text.strip()
+        text = (resp.text or "").strip()
+        if not text:
+            raise ValueError(
+                f"empty response (finish_reason="
+                f"{getattr(resp.candidates[0], 'finish_reason', None) if resp.candidates else None})"
+            )
         text = re.sub(r"^```(?:json)?\s*", "", text)
         text = re.sub(r"\s*```\s*$", "", text)
         data = json.loads(text)
@@ -105,6 +123,13 @@ async def parse_question(question: str) -> ParsedQuestion:
             keywords=data.get("keywords", []),
             entity_refs=data.get("entity_refs", []),
         )
-    except Exception:
-        logger.warning("Gemini question parsing failed, using keyword fallback", exc_info=True)
+    except Exception as exc:  # noqa: BLE001
+        # A dead/renamed model degrades every query to the regex fallback, so it
+        # must be loud rather than a debug-level warning.
+        logger.error(
+            "Question parsing failed with model %r (%s) — falling back to keyword "
+            "extraction; retrieval quality is degraded until this is fixed",
+            config.GEMINI_MODEL_PARSER,
+            exc,
+        )
         return _keyword_fallback(question)

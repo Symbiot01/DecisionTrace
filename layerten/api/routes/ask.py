@@ -40,7 +40,9 @@ async def ask(
         candidates, expanded, parsed.keywords,
         limit=limit, min_confidence=min_confidence, intent=parsed.intent,
     )
-    formatted_results = [format_result(i + 1, item) for i, item in enumerate(ranked)]
+    formatted_results = [
+        format_result(i + 1, item, parsed.keywords) for i, item in enumerate(ranked)
+    ]
 
     answer = await generate_answer(q, formatted_results)
 

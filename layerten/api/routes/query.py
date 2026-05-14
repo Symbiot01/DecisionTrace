@@ -50,4 +50,5 @@ async def query_graph(
         total_candidates=len(candidates),
         processing_ms=processing_ms,
         db=db,
+        keywords=parsed.keywords,
     )

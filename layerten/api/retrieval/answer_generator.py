@@ -1,23 +1,22 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 from typing import Any
 
 from google import genai
 from google.genai import types
 
-from layerten import config
+from layerten import config, gemini_pool
 
 logger = logging.getLogger(__name__)
 
-_ASK_CLIENT: genai.Client | None = None
-
 
 def _get_client() -> genai.Client:
-    global _ASK_CLIENT
-    if _ASK_CLIENT is None:
-        _ASK_CLIENT = genai.Client(api_key=config.GEMINI_API_KEY)
-    return _ASK_CLIENT
+    # Shared pool client, which carries an explicit request timeout. A bare
+    # genai.Client has none, so a stalled call blocked the event loop and hung
+    # the whole API until every later request timed out.
+    return gemini_pool.get_client()
 
 
 def build_evidence_context(formatted_results: list[dict[str, Any]], max_sources: int = 8) -> str:
@@ -49,7 +48,7 @@ Rules:
 - Answer the user's question directly first. Start with 1-2 sentences that directly address what they asked (e.g. if they ask "why", lead with the reason or rationale from the evidence).
 - Prefer evidence that explicitly states a decision, rationale, "why", or description when the question asks for a reason or explanation. Evidence blocks may include a "Description:" or "Rationale:" line—use that when the question asks "why" or "how".
 - Base every part of your answer on the evidence. Cite sources with [1], [2], etc. after the relevant sentence or phrase.
-- If no evidence directly answers the question, say so clearly at the start (e.g. "The evidence does not directly state why...") and then briefly summarize what the evidence does say.
+- If no evidence directly answers the question, say so clearly in one or two sentences and do NOT cite any sources and do NOT summarize unrelated evidence.
 - Be concise. Prefer short paragraphs and bullet points when listing multiple facts.
 - Do not invent information. Only use what appears in the evidence blocks.
 - When referencing a decision, PR, or issue, use the citation number so the user can check the source."""
@@ -79,8 +78,11 @@ Instructions: Answer the question directly in your first 1-2 sentences. Use the 
 
     try:
         client = _get_client()
-        resp = client.models.generate_content(
-            model="gemini-2.0-flash",
+        # The SDK call is synchronous. Called inline it blocks the event loop,
+        # so one slow answer stalls every other in-flight request.
+        resp = await asyncio.to_thread(
+            client.models.generate_content,
+            model=config.GEMINI_MODEL_RAG or config.GEMINI_MODEL or "gemini-2.5-pro",
             contents=user_content,
             config=types.GenerateContentConfig(
                 system_instruction=_SYSTEM,

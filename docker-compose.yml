@@ -1,8 +1,28 @@
-# LayerTen: backend API + frontend (graph-spy-lens)
-# Usage: docker compose up --build
-# Backend: http://localhost:8000  Frontend: http://localhost:8080
+# LayerTen: Neo4j (local) + optional API/frontend
+# Local graph DB: docker compose up -d neo4j
+# Browser: http://localhost:7474  (user neo4j / pass from .env)
 
 services:
+  neo4j:
+    image: neo4j:5-community
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: ${NEO4J_USERNAME:-neo4j}/${NEO4J_PASSWORD:-layerten_local}
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 1g
+      NEO4J_server_memory_pagecache_size: 512m
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:7474 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
   backend:
     build:
       context: .
@@ -10,25 +30,28 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - NEO4J_URI=${NEO4J_URI}
-      - NEO4J_USERNAME=${NEO4J_USERNAME}
-      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
+      - NEO4J_URI=${NEO4J_URI:-bolt://neo4j:7687}
+      - NEO4J_USERNAME=${NEO4J_USERNAME:-neo4j}
+      - NEO4J_PASSWORD=${NEO4J_PASSWORD:-layerten_local}
       - NEO4J_DATABASE=${NEO4J_DATABASE:-neo4j}
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
     env_file:
       - .env
-    # Optional: mount data if you need unified/graph data inside the container
-    # volumes:
-    #   - ./data:/app/data:ro
+    depends_on:
+      neo4j:
+        condition: service_healthy
 
   frontend:
     build:
       context: ./graph-spy-lens
       dockerfile: Dockerfile
       args:
-        # Point to backend (same host: use service name when in compose, or use host.docker.internal on Mac/Win)
         VITE_API_BASE: http://localhost:8000
     ports:
       - "8080:80"
     depends_on:
       - backend
+
+volumes:
+  neo4j_data:
+  neo4j_logs:

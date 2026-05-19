@@ -1,0 +1,648 @@
+{
+  "n": 80,
+  "aligned": 64,
+  "alignment_rate": 0.8,
+  "source_missing": 0,
+  "items": [
+    {
+      "slice": "span",
+      "decision_key": "decision:dynamically-find-scrollable-parent-for-drag-scrolling",
+      "evidence_source": "commit:2b1da96c3ff3083bd33928285c62e344aae69cf3",
+      "excerpt_len": 358,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:filter-projects-by-create-permission-in-issue-modal",
+      "evidence_source": "commit:e080f39f9490dd9bac4010f09460cc7e0d24fb9a",
+      "excerpt_len": 94,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:upgrade-setup-uv-action-to-v5",
+      "evidence_source": "pr:1249",
+      "excerpt_len": 78,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:restrict-deletion-to-admins-creators",
+      "evidence_source": "tag:v0.23.0",
+      "excerpt_len": 86,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:rename-inbox-notifications-ui",
+      "evidence_source": "tag:v0.23.0",
+      "excerpt_len": 78,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:restrict-guest-permissions",
+      "evidence_source": "tag:v0.23.0",
+      "excerpt_len": 149,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:deprecate-viewer-role",
+      "evidence_source": "tag:v0.23.0",
+      "excerpt_len": 93,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:introduce-favorites-feature",
+      "evidence_source": "tag:v0.23.0",
+      "excerpt_len": 136,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:implement-page-version-history",
+      "evidence_source": "tag:v0.23.0",
+      "excerpt_len": 124,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:introduce-rabbitmq-for-custom-setups",
+      "evidence_source": "tag:v0.23.0",
+      "excerpt_len": 221,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-fallback-for-db-initialization-failure",
+      "evidence_source": "commit:7f78d2c218ca7a65297dc03e2579e3954d7fed88",
+      "excerpt_len": 65,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-text-alignment-to-editor",
+      "evidence_source": "tag:v0.24.0",
+      "excerpt_len": 96,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-callouts-to-editor",
+      "evidence_source": "tag:v0.24.0",
+      "excerpt_len": 157,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:centralize-drafts-management",
+      "evidence_source": "tag:v0.24.0",
+      "excerpt_len": 139,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:migrate-assets-to-private-bucket",
+      "evidence_source": "tag:v0.24.0",
+      "excerpt_len": 289,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:centralize-workspace-management",
+      "evidence_source": "tag:v0.24.0",
+      "excerpt_len": 119,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:implement-no-load-ui-for-performance",
+      "evidence_source": "tag:v0.24.0",
+      "excerpt_len": 116,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:refactor-packages-and-components-8800b2fa",
+      "evidence_source": "commit:8800b2fa33eb331f99f35af78cf02ce7a2c19c99",
+      "excerpt_len": 119,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:enable-single-date-on-gantt-blocks",
+      "evidence_source": "commit:0f430a078c6667cdd106efe0ad7bb128acc56da1",
+      "excerpt_len": 55,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:consolidate-helpers-to-shared-utils-package",
+      "evidence_source": "commit:66d9679f333b9aa1320eac9d9d5b9017a7852ede",
+      "excerpt_len": 52,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-user-specific-timezone-instead-of-default",
+      "evidence_source": "commit:9f22ccc65f03bf73af7477537292b59657a05fd4",
+      "excerpt_len": 111,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:centralize-issue-constants",
+      "evidence_source": "commit:bac783b9b78e8780c201218d2d8d59fec285acb5",
+      "excerpt_len": 76,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:sticky-gantt-chart-block-names",
+      "evidence_source": "commit:eb134fc48c66a358a2324f14b254aac4b52d3317",
+      "excerpt_len": 96,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-mobx-for-i18n-state",
+      "evidence_source": "commit:269ac6938005e96534340f7a620a642d2eb3889b",
+      "excerpt_len": 47,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-intersphinx-support-for-docs",
+      "evidence_source": "discussion:1209",
+      "excerpt_len": 202,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:replace-babel-with-esbuild-for-build-config",
+      "evidence_source": "commit:146332fff3cea75136cca7a3e35937d013fb401d",
+      "excerpt_len": 57,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:prevent-model-validate-from-dirtying-session",
+      "evidence_source": "pr:1052",
+      "excerpt_len": 180,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:sync-on-property-deletion",
+      "evidence_source": "commit:84ff079f6d825418534a45c6dad818d6e93152be",
+      "excerpt_len": 116,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:leverage-sqlalchemy-async",
+      "evidence_source": "issue:1218",
+      "excerpt_len": 110,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:send-only-id-in-deletion-webhook-payload",
+      "evidence_source": "commit:dc78854db019fe7ec93163d14793c8cbe2240fd7",
+      "excerpt_len": 289,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:combine-sql-and-nosql-fields",
+      "evidence_source": "discussion:1145",
+      "excerpt_len": 213,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:split-workspace-load-into-multiple-transactions",
+      "evidence_source": "commit:837320dce9b85dc8a2d7b0ba2420bbcc0967e88d",
+      "excerpt_len": 49,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:fallback-to-server-for-mentions-filter",
+      "evidence_source": "commit:837320dce9b85dc8a2d7b0ba2420bbcc0967e88d",
+      "excerpt_len": 49,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:switch-esbuild-to-tsup",
+      "evidence_source": "commit:d5bd4ef63aff7e3ce0a6230af5a96dab3f27bb3d",
+      "excerpt_len": 58,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:set-issue-insert-batch-size-to-50",
+      "evidence_source": "commit:837320dce9b85dc8a2d7b0ba2420bbcc0967e88d",
+      "excerpt_len": 46,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:extend-select-overloads",
+      "evidence_source": "discussion:1280",
+      "excerpt_len": 262,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:adapt-for-pydantic-v2.10-default-factory-change",
+      "evidence_source": "pr:1214",
+      "excerpt_len": 234,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:centralize-helpers-in-plane-utils",
+      "evidence_source": "commit:40d191c602096a7a8cde864be795c8f506f57ca4",
+      "excerpt_len": 55,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:run-pydantic-validations-on-sqlmodel-table-models",
+      "evidence_source": "pr:1041",
+      "excerpt_len": 75,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:adapt-sqlmodel-for-pydantic-2.10-default-factory",
+      "evidence_source": "pr:1215",
+      "excerpt_len": 234,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:avoid-unnecessary-api-call-on-issue-draft",
+      "evidence_source": "commit:b3582852e47f3c63f1aac5fa3f1f107d4d97d836",
+      "excerpt_len": 58,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-created-by-to-serializers",
+      "evidence_source": "commit:50aee23b1442154681cd580730d3f3ad839d0c7d",
+      "excerpt_len": 45,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:consolidate-issue-fetching",
+      "evidence_source": "commit:45936e9702fa835245ac3e83609a8659b7f18e44",
+      "excerpt_len": 101,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:replace-project-filter-with-workspace-filter-in-issue-search",
+      "evidence_source": "commit:987294877d2bc329782273901ede89ae5b12b2be",
+      "excerpt_len": 56,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-github-action-label-checker",
+      "evidence_source": "pr:1069",
+      "excerpt_len": 33,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-field-max_length-for-oracle-varchar",
+      "evidence_source": "issue:1133",
+      "excerpt_len": 283,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:revert-spreadsheet-hover-dropdowns",
+      "evidence_source": "commit:ec00445b9667ca6efaf46757e122d5551c2ca69c",
+      "excerpt_len": 110,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:replace-guid-with-sqlalchemy-uuid",
+      "evidence_source": "discussion:1048",
+      "excerpt_len": 287,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-pipe-union-for-optional-types-in-docs",
+      "evidence_source": "pr:1070",
+      "excerpt_len": 123,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-decorator-system-and-controller-registration-for-live-server",
+      "evidence_source": "commit:dbee7488e157b101e1bfa0ad4b8c5cda23975dcb",
+      "excerpt_len": 70,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-language-fallback-logic",
+      "evidence_source": "commit:5679f4c66fd6c0692db86deb101fb0e57aaefee8",
+      "excerpt_len": 104,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:refactor-use-outside-click-detector-for-performance-and-reusability",
+      "evidence_source": "commit:06c39e7c1ca6b4ed8574dd34d01d6a92db10a96b",
+      "excerpt_len": 176,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:separate-python-vs-db-defaults",
+      "evidence_source": "issue:1260",
+      "excerpt_len": 287,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:align-field-with-pydantic-v2-schema-extra",
+      "evidence_source": "pr:1035",
+      "excerpt_len": 247,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:separate-pydantic-validation-from-db-constraints",
+      "evidence_source": "discussion:1132",
+      "excerpt_len": 68,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:fallback-to-server-during-local-db-load",
+      "evidence_source": "commit:48a80434c9190faca778be55e3f98ac84769861b",
+      "excerpt_len": 51,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:support-sqlalchemy-keyed-dict-models",
+      "evidence_source": "pr:1287",
+      "excerpt_len": 148,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-mypy-ignore-for-model-fields-incompatibility",
+      "evidence_source": "pr:1289",
+      "excerpt_len": 234,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:adapt-to-pydantic-v2.10-incex-change",
+      "evidence_source": "pr:1289",
+      "excerpt_len": 303,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:upgrade-dependencies-for-python-3.13-support",
+      "evidence_source": "pr:1289",
+      "excerpt_len": 251,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-support-for-sqlalchemy-polymorphic-models",
+      "evidence_source": "pr:1226",
+      "excerpt_len": 141,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:validate-on-sqlmodel-update",
+      "evidence_source": "discussion:1241",
+      "excerpt_len": 210,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:handle-forward-refs-in-modular-app",
+      "evidence_source": "discussion:1283",
+      "excerpt_len": 306,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:adopt-eslint-for-live-directory",
+      "evidence_source": "commit:b39ce9c18a6ca3d3453148c83fba42366e75b579",
+      "excerpt_len": 57,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:update-websocket-url-logic",
+      "evidence_source": "commit:47e9c0b9513df5948631bfdfb4a18b69a3a780a6",
+      "excerpt_len": 34,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:handle-onboarding-for-existing-workspace-users",
+      "evidence_source": "commit:427f9993e71940220ce6e5c7e6508ffdf8b48063",
+      "excerpt_len": 112,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:support-database-first-model-generation",
+      "evidence_source": "discussion:1194",
+      "excerpt_len": 211,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:update-python-postgres-versions-c715fb7",
+      "evidence_source": "commit:c715fb7bf98c8976c348676c58a0092c9c26cef1",
+      "excerpt_len": 39,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:enhance-real-time-page-sync-v0.24.1",
+      "evidence_source": "tag:v0.24.1",
+      "excerpt_len": 122,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:upgrade-backend-frameworks-v0.24.1",
+      "evidence_source": "tag:v0.24.1",
+      "excerpt_len": 76,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:refactor-loader-code-v0.24.1",
+      "evidence_source": "tag:v0.24.1",
+      "excerpt_len": 54,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:restrict-guest-page-access-v0.24.1",
+      "evidence_source": "tag:v0.24.1",
+      "excerpt_len": 101,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:sqlmodel-ignores-pydantic-extra-allow",
+      "evidence_source": "discussion:1210",
+      "excerpt_len": 266,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-websockets-for-collaboration-controller",
+      "evidence_source": "commit:23eeb45713429008a02418907955315aa6d3f6d4",
+      "excerpt_len": 63,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:handle-python3.12-typealiastype",
+      "evidence_source": "discussion:1204",
+      "excerpt_len": 105,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:close-pr-1200-as-redundant",
+      "evidence_source": "pr:1200",
+      "excerpt_len": 59,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-click-to-copy-for-issue-identifier",
+      "evidence_source": "commit:8981e52dcc43c31caaa916a4343e4c8e54fd3db2",
+      "excerpt_len": 87,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:support-for-optional-annotated-types",
+      "evidence_source": "tag:0.0.22",
+      "excerpt_len": 104,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:json-field-deserializes-to-dict",
+      "evidence_source": "discussion:1296",
+      "excerpt_len": 183,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:separate-instantiation-from-validation-for-table-models",
+      "evidence_source": "discussion:1297",
+      "excerpt_len": 172,
+      "source_found": true,
+      "span_aligned": false
+    }
+  ]
+}

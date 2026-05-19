@@ -1,0 +1,55 @@
+{
+  "created_at": "2026-09-05T18:10:00+00:00",
+  "target_repo": "makeplane/plane",
+  "eval_boundary": {
+    "last_processed_index": 36375,
+    "total_events": 43924,
+    "in_corpus": "timeline_index <= 36375",
+    "out_of_corpus": "timeline_index > 36375"
+  },
+  "artifacts": {
+    "timeline_path": "data/unified/timeline.jsonl",
+    "timeline_sha256": "f5959114c1d89ca5bafad3299d678308bf7813924bef790886d3daee2db2ef73",
+    "checkpoint_path": "data/process_checkpoint.json",
+    "checkpoint_sha256": "d7104a50575ff6da5332a0482a0d8cbef46e875c023a12962e861d761e657b3d"
+  },
+  "graph_stats": {
+    "nodes": {
+      "FileNode": 35623,
+      "Commit": 34643,
+      "Person": 1192,
+      "DesignDecision": 1112,
+      "Component": 894,
+      "PullRequest": 763,
+      "Branch": 572,
+      "Discussion": 556,
+      "Issue": 345,
+      "Tag": 75,
+      "Label": 17,
+      "Repository": 1
+    },
+    "relationships": {
+      "MODIFIES": 296908,
+      "AUTHORED_BY": 36369,
+      "RENAMES": 18556,
+      "REFERENCES": 3488,
+      "DECISION_FOR": 1067,
+      "INTRODUCES": 650,
+      "BELONGS_TO": 636,
+      "REVIEWED_BY": 257,
+      "SUPERSEDES": 164,
+      "DEPENDS_ON": 101,
+      "DEPRECATES": 19,
+      "REVERTS": 19,
+      "CLOSES": 16,
+      "CHERRY_PICKED_FROM": 3
+    }
+  },
+  "gold_sha256": "66fbf2e5fed4728601567791d02ea692ebe7ee52480c965057e5ec4022e2fd4a",
+  "notes": "Do not resume processing until the eval run is complete. Gold sha256 is filled after gold.jsonl is frozen.",
+  "gold_n": 50,
+  "gold_path": "evals/gold.jsonl",
+  "gold_v2_sha256": "0f3fd56457af834abafd5d4615108a3706b75850666d4a78b853b274f32c3d3f",
+  "gold_v2_path": "evals/gold_v2.jsonl",
+  "gold_v2_note": "Unanswerable ooc near-duplicates replaced with unrelated fixtures; fact/current/structural unchanged from gold.jsonl"
+}

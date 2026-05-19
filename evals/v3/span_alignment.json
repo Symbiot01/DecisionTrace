@@ -1,0 +1,648 @@
+{
+  "n": 80,
+  "aligned": 57,
+  "alignment_rate": 0.7125,
+  "source_missing": 0,
+  "items": [
+    {
+      "slice": "span",
+      "decision_key": "decision:migrate-to-latest-changes-workflow",
+      "evidence_source": "tag:0.0.40",
+      "excerpt_len": 68,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:fix-sqlalchemy-model-copy-instancestate",
+      "evidence_source": "pr:2088",
+      "excerpt_len": 539,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:recommend-uv-for-projects",
+      "evidence_source": "tag:0.0.40",
+      "excerpt_len": 66,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:accept-disabled-caching-in-setup-uv-v10",
+      "evidence_source": "pr:2077",
+      "excerpt_len": 327,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:bump-typer-min-version-to-0.26.1",
+      "evidence_source": "pr:2078",
+      "excerpt_len": 205,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:update-sqlmodel-field-for-pydantic-v2-compatibility",
+      "evidence_source": "discussion:2082",
+      "excerpt_len": 122,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:import-validationerror-from-pydantic-error-wrappers",
+      "evidence_source": "pr:2075",
+      "excerpt_len": 77,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-direct-pydantic-validationerror-import",
+      "evidence_source": "pr:2075",
+      "excerpt_len": 137,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-pr-push-app-for-commit-identity",
+      "evidence_source": "pr:2069",
+      "excerpt_len": 125,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-gh-cli-for-git-auth",
+      "evidence_source": "pr:2070",
+      "excerpt_len": 112,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-pr-submit-for-workflow-auth",
+      "evidence_source": "pr:2071",
+      "excerpt_len": 147,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-pat-for-pre-commit",
+      "evidence_source": "pr:2067",
+      "excerpt_len": 40,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-pr-push-for-pre-commit",
+      "evidence_source": "pr:2067",
+      "excerpt_len": 93,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:recommend-pip-venv-as-default",
+      "evidence_source": "pr:2050",
+      "excerpt_len": 42,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:recommend-uv-as-default",
+      "evidence_source": "pr:2050",
+      "excerpt_len": 42,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:replace-pkg-resources-with-importlib-metadata",
+      "evidence_source": "pr:2061",
+      "excerpt_len": 78,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-field-for-sqlmodel-decimals",
+      "evidence_source": "commit:10c918cff42efbabd24810c71e27eb167deef1d6",
+      "excerpt_len": 145,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:align-model-validate-dict-handling",
+      "evidence_source": "commit:78cdade884294cb939a464d8882b35ef47ec17e2",
+      "excerpt_len": 349,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:upgrade-latest-changes-to-0.7.1",
+      "evidence_source": "pr:2054",
+      "excerpt_len": 186,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:prevent-termynal-scroll-on-click",
+      "evidence_source": "pr:2051",
+      "excerpt_len": 117,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:packaging-alembic-cli-dependencies",
+      "evidence_source": "discussion:2062",
+      "excerpt_len": 292,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:migrate-from-workflow-to-app-for-latest-changes",
+      "evidence_source": "pr:2064",
+      "excerpt_len": 76,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:migrate-automatic-labels-to-latest-changes",
+      "evidence_source": "pr:2074",
+      "excerpt_len": 44,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-buttons-for-termynal-controls",
+      "evidence_source": "pr:2063",
+      "excerpt_len": 154,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:remove-zensical-docs-cache",
+      "evidence_source": "pr:2065",
+      "excerpt_len": 217,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:replace-legacy-label-checker-with-app",
+      "evidence_source": "pr:2072",
+      "excerpt_len": 118,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:direct-pydantic-validationerror-import",
+      "evidence_source": "commit:6ecc18f81b72c41ab7cdec9f3f5066b113ad824a",
+      "excerpt_len": 81,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:conditional-access-in-model-validate-for-relationships",
+      "evidence_source": "pr:2073",
+      "excerpt_len": 174,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-optional-soft-delete-support",
+      "evidence_source": "discussion:2033",
+      "excerpt_len": 476,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:soft-delete-via-interception-only",
+      "evidence_source": "discussion:2033",
+      "excerpt_len": 143,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "design:use-ruff-and-black",
+      "evidence_source": "discussion:2021",
+      "excerpt_len": 122,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:abstract-true-for-custom-registry",
+      "evidence_source": "discussion:2047",
+      "excerpt_len": 112,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-field-for-decimals-over-condecimal",
+      "evidence_source": "pr:2035",
+      "excerpt_len": 75,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:remove-sqlmodel-create-engine-wrapper",
+      "evidence_source": "pr:2037",
+      "excerpt_len": 233,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:remove-pre-commit-ecosystem",
+      "evidence_source": "pr:2025",
+      "excerpt_len": 76,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:set-explicit-checkout-ref-for-pull-request-target",
+      "evidence_source": "pr:2031",
+      "excerpt_len": 176,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-exec-overload-for-compoundselect",
+      "evidence_source": "discussion:2041",
+      "excerpt_len": 219,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:sqlmodel-requires-sqlalchemy-2.0",
+      "evidence_source": "commit:61d80b049dade0d10de72eb3204491581174323d",
+      "excerpt_len": 156,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:merge-pydantic-v2-field-constraints",
+      "evidence_source": "pr:2036",
+      "excerpt_len": 218,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:remove-sqlmodel-class-registry",
+      "evidence_source": "discussion:2024",
+      "excerpt_len": 73,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:correct-sql-generation-for-json-where-clause",
+      "evidence_source": "discussion:2023",
+      "excerpt_len": 321,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:replace-dependabot-for-pre-commit-updates",
+      "evidence_source": "pr:2026",
+      "excerpt_len": 243,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:align-ondelete-type-with-sql-standard",
+      "evidence_source": "pr:2034",
+      "excerpt_len": 314,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:set-dependabot-schedule-to-monthly",
+      "evidence_source": "pr:2025",
+      "excerpt_len": 55,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:batch-small-documentation-fixes",
+      "evidence_source": "discussion:2022",
+      "excerpt_len": 111,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:policy-reject-ai-prs",
+      "evidence_source": "pr:2007",
+      "excerpt_len": 32,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:read-registry-config-from-kwargs",
+      "evidence_source": "pr:2007",
+      "excerpt_len": 322,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:support-stringconstraints-for-sqlalchemy-type-gen",
+      "evidence_source": "pr:2001",
+      "excerpt_len": 126,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:use-dict-for-model-repr",
+      "evidence_source": "discussion:1991",
+      "excerpt_len": 93,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:source-registry-from-kwargs-in-metaclass",
+      "evidence_source": "commit:ecc2f0e30dd1c3161b5d66432d670d32000b642d",
+      "excerpt_len": 434,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:move-tablename-to-metaclass",
+      "evidence_source": "commit:415c8fc72718d7c3fad21fc12dd167563a3a2d02",
+      "excerpt_len": 247,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:sqlmodel-default-over-none-on-insert",
+      "evidence_source": "discussion:2003",
+      "excerpt_len": 228,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:pin-issue-manager-version-to-0.7.1",
+      "evidence_source": "pr:2015",
+      "excerpt_len": 98,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-sqlmodel-agent-library-skill",
+      "evidence_source": "pr:2017",
+      "excerpt_len": 69,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:update-issue-manager-to-0.7.0-and-use-defaults",
+      "evidence_source": "pr:2014",
+      "excerpt_len": 148,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:run-zizmor-security-checks-on-pr",
+      "evidence_source": "pr:2010",
+      "excerpt_len": 95,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:simplify-pr-workflow-triggers",
+      "evidence_source": "pr:2016",
+      "excerpt_len": 205,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:update-type-hint-for-sqlmodel-relationships",
+      "evidence_source": "pr:1996",
+      "excerpt_len": 161,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:make-alls-green-depend-on-test-job",
+      "evidence_source": "pr:2008",
+      "excerpt_len": 151,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:upgrade-cloudflare-wrangler-action-to-v4",
+      "evidence_source": "pr:1983",
+      "excerpt_len": 204,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:ignore-sqlalchemy-descriptors-in-pydantic-v2",
+      "evidence_source": "commit:c2bd7de057d56090ce49b242c897870357993cdb",
+      "excerpt_len": 380,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:ignore-sqlalchemy-descriptors-in-pydantic-validation",
+      "evidence_source": "pr:1990",
+      "excerpt_len": 269,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:comprehensively-re-export-sqlalchemy-classes",
+      "evidence_source": "pr:1981",
+      "excerpt_len": 170,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:re-export-sqlalchemy-engine-class-for-type-hinting",
+      "evidence_source": "pr:1981",
+      "excerpt_len": 324,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:forward-all-args-to-pydantic-model-validate",
+      "evidence_source": "pr:1977",
+      "excerpt_len": 244,
+      "source_found": true,
+      "span_aligned": false
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:migrate-tutorial-to-lifespan",
+      "evidence_source": "pr:1911",
+      "excerpt_len": 66,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:adapt-sqlmodel-model_dump-for-pydantic-2.13",
+      "evidence_source": "pr:1985",
+      "excerpt_len": 240,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:isolate-pydantic-upgrade-from-batch-update-pr1984",
+      "evidence_source": "pr:1984",
+      "excerpt_len": 110,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:close-pr-1909-as-obsolete",
+      "evidence_source": "pr:1909",
+      "excerpt_len": 63,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:re-export-sqlalchemy-engine",
+      "evidence_source": "commit:4da68aaa34f4ad13a52b0e3b0e0efaead873b47a",
+      "excerpt_len": 44,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:forward-model-validate-arguments",
+      "evidence_source": "commit:a338223916a82eaa37dd5e2be422a3ae4ea04cdd",
+      "excerpt_len": 167,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:separate-pydantic-upgrade-from-group-bump-in-pr1989",
+      "evidence_source": "pr:1989",
+      "excerpt_len": 110,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:automate-release-preparation",
+      "evidence_source": "pr:1988",
+      "excerpt_len": 30,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:migrate-docs-to-zensical",
+      "evidence_source": "pr:1913",
+      "excerpt_len": 27,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:restrict-dependency-modification-to-maintainers",
+      "evidence_source": "pr:1914",
+      "excerpt_len": 83,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:remove-sqlmodel-slim-package-stub",
+      "evidence_source": "pr:1987",
+      "excerpt_len": 51,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:centralize-repo-configuration",
+      "evidence_source": "pr:1979",
+      "excerpt_len": 48,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:centralize-contribution-docs",
+      "evidence_source": "pr:1975",
+      "excerpt_len": 56,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:configure-dependabot-for-grouped-weekly-updates",
+      "evidence_source": "pr:1972",
+      "excerpt_len": 57,
+      "source_found": true,
+      "span_aligned": true
+    },
+    {
+      "slice": "span",
+      "decision_key": "decision:add-delete-exec-overloads",
+      "evidence_source": "pr:1891",
+      "excerpt_len": 116,
+      "source_found": true,
+      "span_aligned": true
+    }
+  ]
+}

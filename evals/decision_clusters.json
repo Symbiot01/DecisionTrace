@@ -1,0 +1,187 @@
+{
+  "threshold": 0.6,
+  "total_decisions": 1112,
+  "clusters": {
+    "decision:update-mypy-req-pr216": [
+      "decision:update-mypy-req-pr216",
+      "decision:update-mypy-requirement-in-pr-283",
+      "decision:update-mypy-to-0.950-from-pr-316"
+    ],
+    "decision:allow-pydantic-validators-on-relationship-attributes": [
+      "decision:allow-pydantic-validators-on-relationship-attributes",
+      "decision:disallow-validators-on-relationship-fields"
+    ],
+    "decision:how-to-run-database-migration-with-sqlmodel-and-alembic": [
+      "decision:how-to-run-database-migration-with-sqlmodel-and-alembic",
+      "decision:use-alembic-for-migrations",
+      "decision:use-alembic-for-schema-migrations"
+    ],
+    "decision:enable-sql-compilation-caching-for-selectofscalar": [
+      "decision:enable-sql-compilation-caching-for-selectofscalar",
+      "decision:enable-sqlalchemy-compilation-caching"
+    ],
+    "decision:document-vscode-pyright-configuration": [
+      "decision:document-vscode-pyright-configuration",
+      "decision:document-vscode-type-checking-config"
+    ],
+    "decision:add-support-for-python-3.11-and-3.12": [
+      "decision:add-support-for-python-3.11-and-3.12",
+      "decision:deprecate-python-3.6",
+      "decision:drop-python-3.6-support:pr-602",
+      "decision:drop-python-3.7-support",
+      "decision:retire-python-3.6-support"
+    ],
+    "decision:upgrade-poetry-to-1.2.0b1": [
+      "decision:upgrade-poetry-to-1.2.0b1",
+      "decision:upgrade-poetry-tooling"
+    ],
+    "decision:bump-pydantic-to-1.9.0-and-add-field-params": [
+      "decision:bump-pydantic-to-1.9.0-and-add-field-params",
+      "decision:set-minimum-pydantic-version-1.9.0"
+    ],
+    "decision:require-python-3.8.1": [
+      "decision:require-python-3.8.1",
+      "decision:update-minimum-python-version-to-3.7-for-sqlalchemy2"
+    ],
+    "decision:add-support-for-sqlalchemy-hybrid-properties": [
+      "decision:add-support-for-sqlalchemy-hybrid-properties",
+      "decision:add-support-for-sqlalchemy-hybrid_property"
+    ],
+    "decision:enforce-sqlalchemy-2.0.14-for-trycast": [
+      "decision:enforce-sqlalchemy-2.0.14-for-trycast",
+      "decision:raise-sqlalchemy-version-requirement-to-1.4.29",
+      "decision:set-sqlalchemy-min-version-1.4.36",
+      "decision:update-sqlalchemy-minimum-version-to-1.4.29"
+    ],
+    "decision:upgrade-actions-checkout-to-v3.1.0": [
+      "decision:upgrade-actions-checkout-to-v3.1.0",
+      "decision:upgrade-actions-checkout-to-v4"
+    ],
+    "decision:upgrade-sqlalchemy-to-v2": [
+      "decision:upgrade-sqlalchemy-to-1.4.49",
+      "decision:upgrade-sqlalchemy-to-v2",
+      "decision:upgrade-to-sqlalchemy-v2"
+    ],
+    "decision:store-views-data-in-db-instead-of-local-storage": [
+      "decision:store-views-data-in-db-instead-of-local-storage",
+      "decision:store-views-data-in-local-storage"
+    ],
+    "decision:use-lazy-kwarg-for-loading": [
+      "decision:use-lazy-kwarg-for-loading",
+      "decision:use-lazyload-kwarg-for-loading"
+    ],
+    "decision:support-pydantic-v1-and-v2": [
+      "decision:support-pydantic-v1-and-v2",
+      "decision:support-pydantic-v2"
+    ],
+    "decision:refactor-instance-admin-restriction-to-component": [
+      "decision:refactor-instance-admin-restriction-to-component",
+      "decision:separate-instance-admin-restriction-component"
+    ],
+    "decision:use-cookies-for-localization": [
+      "decision:use-cookies-for-localization",
+      "decision:use-localstorage-for-localization"
+    ],
+    "decision:scope-drag-and-drop-to-rich-text-editor": [
+      "decision:scope-drag-and-drop-to-rich-text-editor",
+      "decision:scope-drag-drop-to-rich-text-editor"
+    ],
+    "decision:migrate-build-tool-to-pdm": [
+      "decision:migrate-build-tool-to-pdm",
+      "decision:migrate-from-poetry-to-pdm"
+    ],
+    "decision:refactor-peekoverview-for-performance-a69f016": [
+      "decision:refactor-peekoverview-for-performance-a69f016",
+      "decision:refactor-peekoverview-for-spreadsheet"
+    ],
+    "decision:add-native-uuid-support": [
+      "decision:add-native-uuid-support",
+      "decision:add-uuid-support-using-sqlalchemy-2.0-types"
+    ],
+    "decision:custom-rewrite-of-tiptap-link-extension": [
+      "decision:custom-rewrite-of-tiptap-link-extension",
+      "decision:rewrite-tiptap-link-extension-for-autolink-and-exit"
+    ],
+    "decision:add-cascade-delete-support": [
+      "decision:add-cascade-delete-support",
+      "decision:add-support-for-cascade-delete-relationships"
+    ],
+    "decision:align-field-with-pydantic-v2-schema-extra": [
+      "decision:align-field-with-pydantic-v2-schema-extra",
+      "decision:align-sqlmodel-field-with-pydanticv2-json_schema_extra"
+    ],
+    "decision:use-jwt-authentication": [
+      "decision:use-jwt-authentication",
+      "decision:use-session-authentication"
+    ],
+    "decision:use-debian-12-slim-for-aio-docker-base": [
+      "decision:use-debian-12-slim-for-aio-docker-base",
+      "decision:use-debian-12-slim-for-aio-docker-image"
+    ]
+  },
+  "key_to_cluster": {
+    "decision:update-mypy-req-pr216": "decision:update-mypy-req-pr216",
+    "decision:update-mypy-requirement-in-pr-283": "decision:update-mypy-req-pr216",
+    "decision:update-mypy-to-0.950-from-pr-316": "decision:update-mypy-req-pr216",
+    "decision:allow-pydantic-validators-on-relationship-attributes": "decision:allow-pydantic-validators-on-relationship-attributes",
+    "decision:disallow-validators-on-relationship-fields": "decision:allow-pydantic-validators-on-relationship-attributes",
+    "decision:how-to-run-database-migration-with-sqlmodel-and-alembic": "decision:how-to-run-database-migration-with-sqlmodel-and-alembic",
+    "decision:use-alembic-for-migrations": "decision:how-to-run-database-migration-with-sqlmodel-and-alembic",
+    "decision:use-alembic-for-schema-migrations": "decision:how-to-run-database-migration-with-sqlmodel-and-alembic",
+    "decision:enable-sql-compilation-caching-for-selectofscalar": "decision:enable-sql-compilation-caching-for-selectofscalar",
+    "decision:enable-sqlalchemy-compilation-caching": "decision:enable-sql-compilation-caching-for-selectofscalar",
+    "decision:document-vscode-pyright-configuration": "decision:document-vscode-pyright-configuration",
+    "decision:document-vscode-type-checking-config": "decision:document-vscode-pyright-configuration",
+    "decision:add-support-for-python-3.11-and-3.12": "decision:add-support-for-python-3.11-and-3.12",
+    "decision:deprecate-python-3.6": "decision:add-support-for-python-3.11-and-3.12",
+    "decision:drop-python-3.6-support:pr-602": "decision:add-support-for-python-3.11-and-3.12",
+    "decision:drop-python-3.7-support": "decision:add-support-for-python-3.11-and-3.12",
+    "decision:retire-python-3.6-support": "decision:add-support-for-python-3.11-and-3.12",
+    "decision:upgrade-poetry-to-1.2.0b1": "decision:upgrade-poetry-to-1.2.0b1",
+    "decision:upgrade-poetry-tooling": "decision:upgrade-poetry-to-1.2.0b1",
+    "decision:bump-pydantic-to-1.9.0-and-add-field-params": "decision:bump-pydantic-to-1.9.0-and-add-field-params",
+    "decision:set-minimum-pydantic-version-1.9.0": "decision:bump-pydantic-to-1.9.0-and-add-field-params",
+    "decision:require-python-3.8.1": "decision:require-python-3.8.1",
+    "decision:update-minimum-python-version-to-3.7-for-sqlalchemy2": "decision:require-python-3.8.1",
+    "decision:add-support-for-sqlalchemy-hybrid-properties": "decision:add-support-for-sqlalchemy-hybrid-properties",
+    "decision:add-support-for-sqlalchemy-hybrid_property": "decision:add-support-for-sqlalchemy-hybrid-properties",
+    "decision:enforce-sqlalchemy-2.0.14-for-trycast": "decision:enforce-sqlalchemy-2.0.14-for-trycast",
+    "decision:raise-sqlalchemy-version-requirement-to-1.4.29": "decision:enforce-sqlalchemy-2.0.14-for-trycast",
+    "decision:set-sqlalchemy-min-version-1.4.36": "decision:enforce-sqlalchemy-2.0.14-for-trycast",
+    "decision:update-sqlalchemy-minimum-version-to-1.4.29": "decision:enforce-sqlalchemy-2.0.14-for-trycast",
+    "decision:upgrade-actions-checkout-to-v3.1.0": "decision:upgrade-actions-checkout-to-v3.1.0",
+    "decision:upgrade-actions-checkout-to-v4": "decision:upgrade-actions-checkout-to-v3.1.0",
+    "decision:upgrade-sqlalchemy-to-1.4.49": "decision:upgrade-sqlalchemy-to-v2",
+    "decision:upgrade-sqlalchemy-to-v2": "decision:upgrade-sqlalchemy-to-v2",
+    "decision:upgrade-to-sqlalchemy-v2": "decision:upgrade-sqlalchemy-to-v2",
+    "decision:store-views-data-in-db-instead-of-local-storage": "decision:store-views-data-in-db-instead-of-local-storage",
+    "decision:store-views-data-in-local-storage": "decision:store-views-data-in-db-instead-of-local-storage",
+    "decision:use-lazy-kwarg-for-loading": "decision:use-lazy-kwarg-for-loading",
+    "decision:use-lazyload-kwarg-for-loading": "decision:use-lazy-kwarg-for-loading",
+    "decision:support-pydantic-v1-and-v2": "decision:support-pydantic-v1-and-v2",
+    "decision:support-pydantic-v2": "decision:support-pydantic-v1-and-v2",
+    "decision:refactor-instance-admin-restriction-to-component": "decision:refactor-instance-admin-restriction-to-component",
+    "decision:separate-instance-admin-restriction-component": "decision:refactor-instance-admin-restriction-to-component",
+    "decision:use-cookies-for-localization": "decision:use-cookies-for-localization",
+    "decision:use-localstorage-for-localization": "decision:use-cookies-for-localization",
+    "decision:scope-drag-and-drop-to-rich-text-editor": "decision:scope-drag-and-drop-to-rich-text-editor",
+    "decision:scope-drag-drop-to-rich-text-editor": "decision:scope-drag-and-drop-to-rich-text-editor",
+    "decision:migrate-build-tool-to-pdm": "decision:migrate-build-tool-to-pdm",
+    "decision:migrate-from-poetry-to-pdm": "decision:migrate-build-tool-to-pdm",
+    "decision:refactor-peekoverview-for-performance-a69f016": "decision:refactor-peekoverview-for-performance-a69f016",
+    "decision:refactor-peekoverview-for-spreadsheet": "decision:refactor-peekoverview-for-performance-a69f016",
+    "decision:add-native-uuid-support": "decision:add-native-uuid-support",
+    "decision:add-uuid-support-using-sqlalchemy-2.0-types": "decision:add-native-uuid-support",
+    "decision:custom-rewrite-of-tiptap-link-extension": "decision:custom-rewrite-of-tiptap-link-extension",
+    "decision:rewrite-tiptap-link-extension-for-autolink-and-exit": "decision:custom-rewrite-of-tiptap-link-extension",
+    "decision:add-cascade-delete-support": "decision:add-cascade-delete-support",
+    "decision:add-support-for-cascade-delete-relationships": "decision:add-cascade-delete-support",
+    "decision:align-field-with-pydantic-v2-schema-extra": "decision:align-field-with-pydantic-v2-schema-extra",
+    "decision:align-sqlmodel-field-with-pydanticv2-json_schema_extra": "decision:align-field-with-pydantic-v2-schema-extra",
+    "decision:use-jwt-authentication": "decision:use-jwt-authentication",
+    "decision:use-session-authentication": "decision:use-jwt-authentication",
+    "decision:use-debian-12-slim-for-aio-docker-base": "decision:use-debian-12-slim-for-aio-docker-base",
+    "decision:use-debian-12-slim-for-aio-docker-image": "decision:use-debian-12-slim-for-aio-docker-base"
+  },
+  "clustered_nodes": 62
+}

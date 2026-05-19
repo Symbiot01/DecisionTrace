@@ -1,0 +1,2 @@
+# Dev / eval dependencies (not required for production API runtime)
+pytest>=8.0

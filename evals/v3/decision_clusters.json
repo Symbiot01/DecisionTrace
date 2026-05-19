@@ -1,0 +1,161 @@
+{
+  "threshold": 0.6,
+  "total_decisions": 880,
+  "clusters": {
+    "decision:drop-python-3.6-support": [
+      "decision:add-python-3.10-support",
+      "decision:add-support-for-python-3.13",
+      "decision:add-support-for-python-3.14",
+      "decision:drop-python-3.6-support",
+      "decision:drop-python-3.9-support",
+      "decision:retire-python-3.6-support",
+      "decision:support-python-3.14"
+    ],
+    "decision:upgrade-actions-download-artifact-to-v6": [
+      "decision:upgrade-actions-download-artifact-to-v6",
+      "decision:upgrade-actions-upload-artifact-to-v3"
+    ],
+    "decision:pin-actions-checkout-v5-and-upgrade-latest-changes": [
+      "decision:pin-actions-checkout-v5-and-upgrade-latest-changes",
+      "decision:upgrade-actions-cache-to-v3",
+      "decision:upgrade-actions-checkout-to-v3",
+      "decision:upgrade-actions-checkout-to-v3.1.0-pr-458",
+      "decision:upgrade-actions-checkout-to-v5"
+    ],
+    "decision:increase-coverage-threshold-to-99": [
+      "decision:increase-coverage-threshold-to-99",
+      "decision:set-test-coverage-threshold-to-99-percent"
+    ],
+    "decision:pin-fastapi-version-for-tests-to-0.125.0": [
+      "decision:pin-fastapi-version-for-tests-to-0.125.0",
+      "decision:update-tests-for-fastapi-0.128.1-compatibility"
+    ],
+    "decision:drop-pydantic-v1-support": [
+      "decision:drop-pydantic-v1-support",
+      "decision:drop-pydantic-v1-support-from-tests"
+    ],
+    "decision:add-direct-support-for-pydantic-field-parameters": [
+      "decision:add-direct-support-for-pydantic-field-parameters",
+      "decision:support-pydantic-1.9.0-fields"
+    ],
+    "decision:widen-sa-type-annotation-to-match-runtime": [
+      "decision:widen-sa-type-annotation-to-match-runtime",
+      "decision:widen-sa_type-annotation"
+    ],
+    "decision:use-pep484-dunder-for-positional-only-params": [
+      "decision:use-pep484-dunder-for-positional-only-params",
+      "decision:use-pep570-slash-for-positional-only-params"
+    ],
+    "decision:avoid-explicit-any-in-sqlmodel-new-type-annotation": [
+      "decision:avoid-explicit-any-in-sqlmodel-new-type-annotation",
+      "decision:remove-explicit-any-return-from-sqlmodel-new"
+    ],
+    "decision:make-FieldInfoMetadata-hashable": [
+      "decision:make-FieldInfoMetadata-hashable",
+      "decision:make-fieldinfometadata-hashable"
+    ],
+    "decision:relax-sqlalchemy-v2.1-pin": [
+      "decision:relax-sqlalchemy-stubs-dependency-20210824",
+      "decision:relax-sqlalchemy-v2.1-pin",
+      "decision:relax-sqlalchemy-version-pin"
+    ],
+    "decision:add-alembic-migration-parity-tests": [
+      "decision:add-alembic-migration-parity-tests",
+      "decision:add-alembic-migration-tests"
+    ],
+    "decision:handle-typing-literal-in-sqlalchemy-type-conversion": [
+      "decision:handle-typing-literal-in-sqlalchemy-type-conversion",
+      "decision:unsupported-typing-literal-for-db-fields"
+    ],
+    "decision:allow-field-level-column-type-override": [
+      "decision:allow-field-level-column-type-override",
+      "decision:specify-column-type-on-field:pr111"
+    ],
+    "decision:add-concurrency-locking-mechanisms": [
+      "decision:add-concurrency-locking-mechanisms",
+      "decision:add-locking-mechanisms"
+    ],
+    "decision:constrain-sqlalchemy-version-pr371": [
+      "decision:constrain-sqlalchemy-version-pr371",
+      "decision:pin-sqlalchemy-version-pre-1.4.36"
+    ],
+    "decision:upgrade-actions-setup-python-to-v4": [
+      "decision:upgrade-actions-setup-python-to-v4",
+      "decision:upgrade-actions-setup-python-to-v6"
+    ],
+    "decision:set-minimum-python-version-to-3.8.1": [
+      "decision:set-minimum-python-version-to-3.8.1",
+      "decision:upgrade-python-min-version-to-3.8.1"
+    ],
+    "decision:revert-codecov-addition": [
+      "decision:revert-codecov-addition",
+      "decision:revert-codecov-addition-due-to-flakiness",
+      "decision:revert-codecov-addition-pr-1306"
+    ],
+    "decision:pin-ci-runner-to-ubuntu-22.04": [
+      "decision:pin-ci-runner-to-ubuntu-22.04",
+      "decision:use-ubuntu-22.04-for-python-3.7-ci"
+    ],
+    "decision:consolidate-tutorial-tests-into-single-file": [
+      "decision:consolidate-tutorial-tests-into-single-file",
+      "decision:consolidate-version-specific-tutorial-tests"
+    ]
+  },
+  "key_to_cluster": {
+    "decision:add-python-3.10-support": "decision:drop-python-3.6-support",
+    "decision:add-support-for-python-3.13": "decision:drop-python-3.6-support",
+    "decision:add-support-for-python-3.14": "decision:drop-python-3.6-support",
+    "decision:drop-python-3.6-support": "decision:drop-python-3.6-support",
+    "decision:drop-python-3.9-support": "decision:drop-python-3.6-support",
+    "decision:retire-python-3.6-support": "decision:drop-python-3.6-support",
+    "decision:support-python-3.14": "decision:drop-python-3.6-support",
+    "decision:upgrade-actions-download-artifact-to-v6": "decision:upgrade-actions-download-artifact-to-v6",
+    "decision:upgrade-actions-upload-artifact-to-v3": "decision:upgrade-actions-download-artifact-to-v6",
+    "decision:pin-actions-checkout-v5-and-upgrade-latest-changes": "decision:pin-actions-checkout-v5-and-upgrade-latest-changes",
+    "decision:upgrade-actions-cache-to-v3": "decision:pin-actions-checkout-v5-and-upgrade-latest-changes",
+    "decision:upgrade-actions-checkout-to-v3": "decision:pin-actions-checkout-v5-and-upgrade-latest-changes",
+    "decision:upgrade-actions-checkout-to-v3.1.0-pr-458": "decision:pin-actions-checkout-v5-and-upgrade-latest-changes",
+    "decision:upgrade-actions-checkout-to-v5": "decision:pin-actions-checkout-v5-and-upgrade-latest-changes",
+    "decision:increase-coverage-threshold-to-99": "decision:increase-coverage-threshold-to-99",
+    "decision:set-test-coverage-threshold-to-99-percent": "decision:increase-coverage-threshold-to-99",
+    "decision:pin-fastapi-version-for-tests-to-0.125.0": "decision:pin-fastapi-version-for-tests-to-0.125.0",
+    "decision:update-tests-for-fastapi-0.128.1-compatibility": "decision:pin-fastapi-version-for-tests-to-0.125.0",
+    "decision:drop-pydantic-v1-support": "decision:drop-pydantic-v1-support",
+    "decision:drop-pydantic-v1-support-from-tests": "decision:drop-pydantic-v1-support",
+    "decision:add-direct-support-for-pydantic-field-parameters": "decision:add-direct-support-for-pydantic-field-parameters",
+    "decision:support-pydantic-1.9.0-fields": "decision:add-direct-support-for-pydantic-field-parameters",
+    "decision:widen-sa-type-annotation-to-match-runtime": "decision:widen-sa-type-annotation-to-match-runtime",
+    "decision:widen-sa_type-annotation": "decision:widen-sa-type-annotation-to-match-runtime",
+    "decision:use-pep484-dunder-for-positional-only-params": "decision:use-pep484-dunder-for-positional-only-params",
+    "decision:use-pep570-slash-for-positional-only-params": "decision:use-pep484-dunder-for-positional-only-params",
+    "decision:avoid-explicit-any-in-sqlmodel-new-type-annotation": "decision:avoid-explicit-any-in-sqlmodel-new-type-annotation",
+    "decision:remove-explicit-any-return-from-sqlmodel-new": "decision:avoid-explicit-any-in-sqlmodel-new-type-annotation",
+    "decision:make-FieldInfoMetadata-hashable": "decision:make-FieldInfoMetadata-hashable",
+    "decision:make-fieldinfometadata-hashable": "decision:make-FieldInfoMetadata-hashable",
+    "decision:relax-sqlalchemy-stubs-dependency-20210824": "decision:relax-sqlalchemy-v2.1-pin",
+    "decision:relax-sqlalchemy-v2.1-pin": "decision:relax-sqlalchemy-v2.1-pin",
+    "decision:relax-sqlalchemy-version-pin": "decision:relax-sqlalchemy-v2.1-pin",
+    "decision:add-alembic-migration-parity-tests": "decision:add-alembic-migration-parity-tests",
+    "decision:add-alembic-migration-tests": "decision:add-alembic-migration-parity-tests",
+    "decision:handle-typing-literal-in-sqlalchemy-type-conversion": "decision:handle-typing-literal-in-sqlalchemy-type-conversion",
+    "decision:unsupported-typing-literal-for-db-fields": "decision:handle-typing-literal-in-sqlalchemy-type-conversion",
+    "decision:allow-field-level-column-type-override": "decision:allow-field-level-column-type-override",
+    "decision:specify-column-type-on-field:pr111": "decision:allow-field-level-column-type-override",
+    "decision:add-concurrency-locking-mechanisms": "decision:add-concurrency-locking-mechanisms",
+    "decision:add-locking-mechanisms": "decision:add-concurrency-locking-mechanisms",
+    "decision:constrain-sqlalchemy-version-pr371": "decision:constrain-sqlalchemy-version-pr371",
+    "decision:pin-sqlalchemy-version-pre-1.4.36": "decision:constrain-sqlalchemy-version-pr371",
+    "decision:upgrade-actions-setup-python-to-v4": "decision:upgrade-actions-setup-python-to-v4",
+    "decision:upgrade-actions-setup-python-to-v6": "decision:upgrade-actions-setup-python-to-v4",
+    "decision:set-minimum-python-version-to-3.8.1": "decision:set-minimum-python-version-to-3.8.1",
+    "decision:upgrade-python-min-version-to-3.8.1": "decision:set-minimum-python-version-to-3.8.1",
+    "decision:revert-codecov-addition": "decision:revert-codecov-addition",
+    "decision:revert-codecov-addition-due-to-flakiness": "decision:revert-codecov-addition",
+    "decision:revert-codecov-addition-pr-1306": "decision:revert-codecov-addition",
+    "decision:pin-ci-runner-to-ubuntu-22.04": "decision:pin-ci-runner-to-ubuntu-22.04",
+    "decision:use-ubuntu-22.04-for-python-3.7-ci": "decision:pin-ci-runner-to-ubuntu-22.04",
+    "decision:consolidate-tutorial-tests-into-single-file": "decision:consolidate-tutorial-tests-into-single-file",
+    "decision:consolidate-version-specific-tutorial-tests": "decision:consolidate-tutorial-tests-into-single-file"
+  },
+  "clustered_nodes": 54
+}

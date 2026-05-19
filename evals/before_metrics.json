@@ -1,0 +1,2455 @@
+{
+  "run_dir": "evals/runs/20260905T181553Z",
+  "n_items": 50,
+  "cite_precision": {
+    "slice": "fact+current",
+    "n": 30,
+    "mean_of_medians": 0.3778,
+    "perfect_rate": 0.2667,
+    "wilson_95_perfect": [
+      0.1418,
+      0.4445
+    ],
+    "X_for_cv": 37.8
+  },
+  "hit_at_8": {
+    "n": 40,
+    "rate": 0.575
+  },
+  "invented_source_ids": {
+    "n": 50,
+    "count": 9,
+    "rate": 0.18,
+    "target": 0
+  },
+  "superseded_citations": {
+    "n": 10,
+    "count": 0,
+    "rate": 0.0,
+    "target": 0
+  },
+  "refusal_accuracy": {
+    "n": 10,
+    "correct": 1,
+    "rate": 0.1
+  },
+  "span_alignment": {
+    "n": 80,
+    "rate": 0.8,
+    "aligned": 64
+  },
+  "by_slice": {
+    "current": {
+      "n": 10,
+      "cite_precision_mean": 0.275,
+      "hit_at_8": 0.6,
+      "invented": 0,
+      "superseded": 0
+    },
+    "fact": {
+      "n": 20,
+      "cite_precision_mean": 0.4292,
+      "hit_at_8": 0.6,
+      "invented": 0,
+      "superseded": 0
+    },
+    "structural": {
+      "n": 10,
+      "cite_precision_mean": 0.4,
+      "hit_at_8": 0.5,
+      "invented": 0,
+      "superseded": 0
+    },
+    "unanswerable": {
+      "n": 10,
+      "cite_precision_mean": null,
+      "hit_at_8": 0.0,
+      "invented": 9,
+      "superseded": 0
+    }
+  },
+  "items": [
+    {
+      "id": "current-001",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.25,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.25,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "issue:354",
+            "issue:354",
+            "pr:103",
+            "issue:354"
+          ],
+          "retrieved_pack": [
+            "decision:use-native-pydantic-decimal-type",
+            "discussion:1004",
+            "discussion:1032",
+            "discussion:1278",
+            "discussion:1452",
+            "issue:1260",
+            "issue:230",
+            "issue:354",
+            "pr:103",
+            "pr:971"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Decimal values should be represented using a native Pydantic `Decimal` type annotation [6]. This method is preferable to using `condecimal()` because it improves editor support (like autocompletion and type checking) and simplifies the code",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-001.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-002",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "issue:9",
+            "issue:9"
+          ],
+          "retrieved_pack": [
+            "decision:default-sqlmodel-indexes-on",
+            "decision:introduce-sqlmodel-slim-packaging-strategy",
+            "decision:sqlmodel-index-creation-opt-in",
+            "discussion:1042",
+            "discussion:1212",
+            "discussion:1295",
+            "discussion:551",
+            "issue:9",
+            "pr:205",
+            "tag:0.0.18",
+            "tag:0.0.6"
+          ],
+          "invented_markers": [],
+          "answer_preview": "SQLModel database column indexes are opt-in and are not created by default [1, 3]. This behavior was changed in version 0.0.6; previously, indexes were automatically created for every column [3, 4].\n\nThe switch to an opt-in system was made ",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-002.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-003",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "decision:default-column-index-false",
+            "decision:default-sqlmodel-indexes-on",
+            "decision:disable-default-field-indexing",
+            "decision:make-sqlmodel-indexes-opt-in",
+            "decision:sqlmodel-index-creation-opt-in",
+            "discussion:1535",
+            "discussion:551",
+            "issue:9",
+            "issue:93",
+            "pr:108",
+            "pr:11",
+            "tag:0.0.6"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The default policy is that database indexes are not created by default; they are opt-in [1, 4]. To create an index on a column, you must explicitly set `index=True` on the corresponding field [1, 3].\n\nThis policy was adopted because creatin",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-003.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-004",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "pr:505",
+            "pr:505",
+            "pr:505",
+            "issue:285"
+          ],
+          "retrieved_pack": [
+            "decision:add-sa_type-parameter-to-field",
+            "discussion:1484",
+            "discussion:1520",
+            "discussion:1952",
+            "issue:285",
+            "issue:299",
+            "issue:42",
+            "issue:69",
+            "pr:366",
+            "pr:505"
+          ],
+          "invented_markers": [],
+          "answer_preview": "You can specify a SQLAlchemy column type on a `Field` by using either the `sa_type` parameter or the `sa_column` parameter [2, 5]. The `sa_type` parameter was introduced in SQLModel version 0.0.11 to allow for explicitly passing a custom SQ",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-004.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-005",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "pr:505",
+            "pr:505",
+            "pr:505"
+          ],
+          "retrieved_pack": [
+            "decision:add-sa_type-parameter-to-field",
+            "decision:remove-custom-sqlalchemy-type-shims",
+            "discussion:1950",
+            "discussion:847",
+            "issue:271",
+            "issue:319",
+            "pr:1304",
+            "pr:436",
+            "pr:505",
+            "pr:700",
+            "pr:803"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The `sa_type` parameter in the `Field` function is used to specify the SQLAlchemy column type [6]. This feature was added to allow users to explicitly provide a SQLAlchemy type, such as `Unicode`, and to specify database-specific column typ",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-005.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-006",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.5,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.5,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "pr:517",
+            "pr:563",
+            "pr:517",
+            "pr:563"
+          ],
+          "retrieved_pack": [
+            "commit:167dabf9e42293a2185076bad35121a33f0fd633",
+            "commit:dce0e99140fb7ab0254e2bed360979699c362ece",
+            "decision:bump-pydantic-to-1.9.0-and-add-field-params",
+            "decision:require-python-3.8.1",
+            "decision:update-minimum-python-version-to-3.7-for-sqlalchemy2",
+            "decision:update-minimum-sqlalchemy-version-to-2.0.14",
+            "decision:upgrade-python-to-3.11.9",
+            "issue:434",
+            "pr:440",
+            "pr:517",
+            "pr:563",
+            "pr:964",
+            "tag:v0.19-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The evidence provides conflicting information on the minimum required Python version. One change required Python 3.8.1 as the minimum version [4], while another updated the minimum to 3.7 [3].\n\nHere are the details on the different minimum ",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-006.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-007",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:add87b4a175314412bdcd2742abccb549a74114e",
+            "commit:7e594a73a48e1d1afe877eb30d9e5834eb6889db",
+            "tag:v0.19-dev"
+          ],
+          "retrieved_pack": [
+            "commit:24db215d2042f65a675974c756955ac0a494ba8c",
+            "commit:2fde6c4b9484a626cd447d7b5853b36ff7f95a67",
+            "commit:7e594a73a48e1d1afe877eb30d9e5834eb6889db",
+            "commit:add87b4a175314412bdcd2742abccb549a74114e",
+            "commit:d71cf567e968552caf18c4d55094c04d9ed1930b",
+            "decision:store-full-width-state-in-local-storage",
+            "discussion:569",
+            "discussion:843",
+            "tag:v0.19-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not contain information on how GUID values should be standardized for storage.\n\nThe evidence does mention handling and storing other types of values:\n*   Fixes were implemented using `try/catch` blocks to handle i",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-007.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-008",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.5,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.5,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:13985df8601f8aca2395a42385675cada31d2a5c",
+            "commit:12e35d6b7088a4bcdf637c39135d42cc9f259b1c"
+          ],
+          "retrieved_pack": [
+            "commit:12e35d6b7088a4bcdf637c39135d42cc9f259b1c",
+            "commit:13985df8601f8aca2395a42385675cada31d2a5c",
+            "component:web-core-local-db",
+            "decision:store-full-width-state-in-local-storage",
+            "decision:store-views-data-in-db-instead-of-local-storage",
+            "decision:store-views-data-in-local-storage",
+            "discussion:625",
+            "discussion:827",
+            "pr:1324",
+            "tag:v0.19-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Views data should be stored in the database (db) instead of local storage [3, 4, 5].\n\nA refactoring commit was made specifically for \"saving views data to db instead of local-storage\" [3]. This change reflects a decision to store views data",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-008.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-009",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "pr:690",
+            "pr:690",
+            "pr:690"
+          ],
+          "retrieved_pack": [
+            "decision:pydantic-v2-vscode-autocomplete-issue",
+            "decision:refactor-types-for-pydantic-2.7",
+            "decision:skip-pydantic-v1-support-for-sqlalchemy-v2",
+            "issue:890",
+            "pr:1214",
+            "pr:1215",
+            "pr:1575",
+            "pr:1577",
+            "pr:1578",
+            "pr:690",
+            "pr:913"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Yes, the decision was made to skip intermediate Pydantic v1 support [1]. This was done in order to directly support SQLAlchemy 2.0 instead [1]. This decision superseded a previous plan to first support Pydantic v1 before moving to SQLAlchem",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-009.0.json"
+        }
+      ]
+    },
+    {
+      "id": "current-010",
+      "slice": "current",
+      "must_refuse": false,
+      "cite_precision_median": 0.5,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.5,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "pr:964",
+            "tag:0.0.9"
+          ],
+          "retrieved_pack": [
+            "commit:cce1bcaf232a537e95f95c179f8253805ebe1a01",
+            "decision:direct-import-of-sqlalchemy-components",
+            "decision:raise-sqlalchemy-version-requirement-to-1.4.29",
+            "decision:update-minimum-python-version-to-3.7-for-sqlalchemy2",
+            "decision:update-minimum-sqlalchemy-version-to-2.0.14",
+            "decision:upgrade-sqlalchemy-to-1.4.49",
+            "discussion:1330",
+            "discussion:550",
+            "pr:519",
+            "pr:563",
+            "pr:964",
+            "tag:0.0.9"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The minimum supported SQLAlchemy version is 2.0.14 [5, 6]. This version is required because the project internally uses the `TryCast` feature, which was introduced in that specific version of SQLAlchemy [5].\n\nOver time, the project has upda",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/current-010.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-001",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:2b1da96c3ff3083bd33928285c62e344aae69cf3",
+            "commit:2b1da96c3ff3083bd33928285c62e344aae69cf3",
+            "commit:2b1da96c3ff3083bd33928285c62e344aae69cf3",
+            "commit:2b1da96c3ff3083bd33928285c62e344aae69cf3"
+          ],
+          "retrieved_pack": [
+            "commit:2b1da96c3ff3083bd33928285c62e344aae69cf3",
+            "commit:5fb7e98b7caac28e240741ef9ade7af85ac770b4",
+            "commit:6268acbe73f998bb94d270f0602b3a8f0246ef57",
+            "commit:af6034d55383973bfffea40893e3f0af94c9e89b",
+            "commit:ca23aebdd5ae9aca65921ef23a4d4b8e0107ab4b",
+            "commit:e4de2ffcfcd861cae28c8e7b75e6020819b4acc3",
+            "decision:auto-hide-drag-handle",
+            "decision:dynamically-find-scrollable-parent-for-drag-scrolling",
+            "decision:hide-drag-handle-on-mouseleave",
+            "discussion:1323"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The drag scrolling feature finds the closest scrollable parent by dynamically traversing the DOM tree upwards from the drag handle [2]. It inspects the CSS `overflow` property of each parent to identify the first scrollable container [2].\n\n",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-001.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-002",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "commit:70cd90b06595208aa9cb6e73147f52800d821b4c",
+            "commit:71a115256e120d2c68cbc73d36c517a5e180d422",
+            "commit:97bc153ef9d6fdd9a921fbceb3fb859247ab4193",
+            "commit:b3582852e47f3c63f1aac5fa3f1f107d4d97d836",
+            "commit:f347c1cd69e34131b118f9e6abc0d0b9d101652c",
+            "component:common-create-update-issue-modal",
+            "component:issue-creation-modal",
+            "component:issue-form",
+            "decision:avoid-unnecessary-api-call-on-issue-draft",
+            "decision:consolidate-issue-modals-for-consistency",
+            "decision:use-active-store-for-issue-updates",
+            "issue:115",
+            "issue:293",
+            "pr:1205"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state which projects are shown when creating an issue in the issue modal.\n\nThe evidence does describe the modal's purpose and evolution:\n*   It is the dialog used for creating new issues [",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-002.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-003",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "decision:add-dependabot-for-github-actions",
+            "decision:upgrade-setup-uv-action-to-v5",
+            "issue:164",
+            "issue:183",
+            "issue:20",
+            "issue:594",
+            "pr:1225",
+            "pr:1249",
+            "pr:1348",
+            "pr:1551",
+            "pr:1582",
+            "pr:1593",
+            "pr:352",
+            "pr:410"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Could not generate an answer.",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-003.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-004",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "commit:20fe27e08676493e75e41ec6a228f0d436f711ee",
+            "commit:538186839233a5563b0ac29e57b0d689f090e7cf",
+            "commit:66d07e340b6bb2a0c915434afa64c0dd2d7e748f",
+            "commit:993c7899b67137ab655365193bbd8e09106f4c0e",
+            "commit:ad8d36757a074ff37441f8161640e2718d79beae",
+            "commit:d049438677390a4fc74e77e077e7954f151443cd",
+            "commit:de6c574cbd5ed262274bca2a95fd6ba57a39ae99",
+            "decision:add-direct-filters-to-cycles-modules",
+            "decision:add-logo-properties",
+            "decision:enhance-event-tracking-with-posthog",
+            "tag:v0.19-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state who is allowed to delete issues, cycles, modules, views, and pages.\n\nThe evidence does mention the existence of \"delete mutations\" for issues, cycles, and modules, indicating that this functionality exis",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-004.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-005",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:7fda07c7a0203a5a352fd8600ecd00cdc173bb98",
+            "commit:7fda07c7a0203a5a352fd8600ecd00cdc173bb98",
+            "commit:c28a4cb5af527362afdc0a90a77f2dbf6ab00be1",
+            "commit:59140aab74968bcdf629caf934898d23c3ca1951"
+          ],
+          "retrieved_pack": [
+            "commit:25368089d2495cf90d46f72eaf21eed827ec7599",
+            "commit:31b41167e0688234a923752ff55c411b04b561a4",
+            "commit:59140aab74968bcdf629caf934898d23c3ca1951",
+            "commit:7fda07c7a0203a5a352fd8600ecd00cdc173bb98",
+            "commit:b2a181786f0ad704f37f9c1040c767241ecbf5ec",
+            "commit:beeb3c08e6d22a6a85811323077c52f1b1a8c277",
+            "commit:c28a4cb5af527362afdc0a90a77f2dbf6ab00be1",
+            "commit:ddeff2db47bc91aff09249119157d5f5ba487e06",
+            "component:issue-inbox",
+            "decision:rename-inbox-to-intake"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The Inbox component was renamed to Intake [2]. The provided evidence does not state that the Notifications component was renamed.\n\nThe evidence shows a commit that \"renamed inbox to intake\" [2]. For Notifications, the evidence only mentions",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-005.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-006",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.24.1",
+            "tag:v0.24.1",
+            "commit:f2bb9446617622433124c25d613a69745f882cf7",
+            "commit:cfec0291777785d97cda4d0159956fad1a87850e"
+          ],
+          "retrieved_pack": [
+            "commit:aec546de79425c383ee6fc69ba9192504f03dbe8",
+            "commit:cfec0291777785d97cda4d0159956fad1a87850e",
+            "commit:ebf949023b62c96a4de3ca963f5cd98bf3dd788c",
+            "commit:f2bb9446617622433124c25d613a69745f882cf7",
+            "commit:f343709fb354c710137bfa348f70c7c79d2788ac",
+            "decision:add-external-api-for-users-and-attachments",
+            "decision:allow-adding-issues-to-completed-cycles",
+            "decision:restrict-guest-page-access-v0.24.1",
+            "pr:1107",
+            "tag:0.0.7",
+            "tag:v0.24.1"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not directly state what permissions guest users have for creating issues.\n\nHowever, the evidence does show a pattern of restricting guest user permissions for security and flexibility [1]. Specific restrictions me",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-006.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-007",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:4349b5a8995cd9996a3438d19d7d6d02adce6237"
+          ],
+          "retrieved_pack": [
+            "commit:193cb2f99e9a8f06722d603edd6c2812cab12909",
+            "commit:4349b5a8995cd9996a3438d19d7d6d02adce6237",
+            "commit:6446e0d8f945d80f842ace4c416765562db28c34",
+            "commit:728845769561601786bb6346a1f161ae5621c8bc",
+            "commit:7fccd746db9aed07f36fd598dc80e5547393c674",
+            "commit:a964d31ca735586341d972409553ec5ca87e7c5f",
+            "commit:b8b46f600bd039599752f31e2888ebb1a958af56",
+            "commit:b8ca49208c46c96e2e4df0958a246cb141f2854c"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Based on the evidence, the Viewer role was removed [5, 6, 7, 8]. Before its removal, the Viewer role existed alongside the Guest role, as a commit added favorite validation for both [1].\n\nSeveral commits indicate work was done to remove the",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-007.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-008",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "pr:1033",
+            "pr:1033",
+            "commit:790e16e093c850e142903de6bc34b06129741d7f"
+          ],
+          "retrieved_pack": [
+            "commit:35e36776389e2d55a8dce6f6982359fcf27f7078",
+            "commit:47aa52c578cc595417937978528d6f24193f5585",
+            "commit:790e16e093c850e142903de6bc34b06129741d7f",
+            "commit:a915b82f90ba9903235c2a7e7dd282fccdef98b4",
+            "commit:b35874e294be76088dd983ea3179dde46d100e47",
+            "commit:d8056b80ec51d98b9dc3923eac03a0a94a1e2076",
+            "decision:add-posthog-event-for-workspace-invite",
+            "discussion:1006",
+            "discussion:587",
+            "pr:1033"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Yes, a favorites feature was introduced for workspace items. The evidence includes a fix for \"workspace level pages favorites auth\" and a commit for \"workspace user favorites\" [1, 2].\n\nA pull request, #1044, was created to address an authen",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-008.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-009",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "commit:1f9f3066082d4068efb1e922b9d59050641aabc4",
+            "commit:3097e1613e34cba8488edf497c4227c57e747920",
+            "commit:7f5e8660d1a9ba68c37f71f7ff30266bd099fb5b",
+            "commit:88f9a8552559837ed04047a470f99a0fa51db40f",
+            "commit:a0ed51c84531f944eb44f5982b2020f06fc3bb7c",
+            "commit:ca5a10378f70490813f22e05e3e547993e72aa2e",
+            "commit:fa1e0926a04688b202eb08d8dd0be9e358347b4e",
+            "commit:fc1fe02a58c815e0a8a88bd311de542d5352e00b",
+            "pr:965"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Could not generate an answer.",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-009.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-010",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.6666666666666666,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.6666666666666666,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.23.0",
+            "tag:v0.23.0",
+            "commit:2c950713a71c0723036152065bb9385d116ffeab"
+          ],
+          "retrieved_pack": [
+            "commit:2c950713a71c0723036152065bb9385d116ffeab",
+            "commit:47d6b152a0898d4c058d59b896e6135559ee85fc",
+            "commit:78ec6d8b0603e84b49a63b3a7da2302eba60efb2",
+            "commit:964e0eba6a18711e69aba35c533cfe6be43de815",
+            "commit:be35966e02e531ee5681957110def1359af7cc6c",
+            "commit:c02f452ae4db7e8cb653538c344f8be3bd5932f9",
+            "component:custom-titlebar",
+            "decision:implement-custom-titlebar-for-desktop",
+            "decision:introduce-rabbitmq-for-custom-setups",
+            "tag:v0.23.0"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Yes, RabbitMQ is a required dependency for custom Docker setups [6].\n\nAccording to the release notes for v0.23, if you are using a custom Docker setup, you must install RabbitMQ and provide the necessary environment variables. This is becau",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-010.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-011",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:7f78d2c218ca7a65297dc03e2579e3954d7fed88"
+          ],
+          "retrieved_pack": [
+            "commit:7f78d2c218ca7a65297dc03e2579e3954d7fed88",
+            "commit:a8728fc7de776496b1656704432f99c7e3c58739",
+            "commit:acba451803a6d7f701393922b1f24d06bdc7c1bc",
+            "commit:dcb02eae7c38e6400e323bda0cdf33e36af0d17c",
+            "component:model-subclass-initialization",
+            "discussion:1111",
+            "discussion:1918",
+            "discussion:1958",
+            "issue:339"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Yes, a fallback was added for when database initialization fails [4]. This was implemented in pull request #5973, titled \"[WEB-2706] fix: Add fallback when db initialisation fails\" [3, 4].\n\nCommits related to this feature modified files inc",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-011.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-012",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.6666666666666666,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.6666666666666666,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.24.0",
+            "tag:v0.24.0",
+            "commit:69704cf2d542bf434b40363e17df02da3ea7617e"
+          ],
+          "retrieved_pack": [
+            "commit:145e6df1291278ebfee6b91a0cdebcf9515382f0",
+            "commit:2c96e042c6a7ec2c3ee01433122fc51bdce5622e",
+            "commit:69704cf2d542bf434b40363e17df02da3ea7617e",
+            "commit:7e8a5882300a92c111cbf6abd1e89660d152cf0d",
+            "commit:b75e624d07fb114545c3a7bde89037be2ea5a8e0",
+            "component:workspace-drafts",
+            "decision:centralize-drafts-management",
+            "discussion:864",
+            "tag:v0.24.0"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Yes, there is a centralized 'Drafts' section for managing unfinished work [1, 2]. This section consolidates all user drafts from all projects into a single, easily accessible tab in the left navigation bar [1, 2].\n\nThe rationale for creatin",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-012.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-013",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.24.0",
+            "tag:v0.24.0"
+          ],
+          "retrieved_pack": [
+            "commit:3161e29d4ad1a57dcba53ff9af3fccca3c7e05ef",
+            "commit:565ba558746be01d7cb3f3a270e3b401b568c6b3",
+            "commit:94f445cc08532a860c62d320c9ae264ed7dcf7f2",
+            "commit:c940a2921e10e173701f20bb98136b787a30728c",
+            "component:comment-access-control",
+            "decision:introduce-comment-access-levels",
+            "decision:migrate-assets-to-private-bucket",
+            "discussion:960",
+            "tag:v0.12.1-dev",
+            "tag:v0.24.0"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Based on the evidence, all user assets are stored in a private bucket [1]. This decision was made to enhance data security by ensuring that uploaded assets are only accessible from within the platform [1].\n\nOther related changes include fix",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-013.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-014",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.24.0",
+            "tag:v0.24.0",
+            "tag:v0.24.0"
+          ],
+          "retrieved_pack": [
+            "commit:05d3e3ae45bab20441cca57935e382fa390fa7e0",
+            "commit:288a8ee4221d0f44687dc8e2485d7f1e0806a220",
+            "commit:4b4268cac504bce6e84d1ef731d3d32a83e9470a",
+            "commit:4b436dcdc5750e2af33115e043820bf2b3082b65",
+            "commit:712339a6381d4690fccd03346617aff4b8e3a6d3",
+            "commit:eda46213cb1ecddfd20c0b1512f594d00431fbb5",
+            "decision:centralize-workspace-management",
+            "pr:1059",
+            "tag:v0.24.0"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Workspace management is centralized in a `/god-mode` interface for instance administrators [7]. This provides a single, dedicated interface for managing all workspaces in order to improve performance and security [7]. The change was impleme",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-014.0.json"
+        }
+      ]
+    },
+    {
+      "id": "fact-015",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.24.0",
+            "tag:v0.24.0"
+          ],
+          "retrieved_pack": [
+            "commit:761742a06709995f865269115ff8754cbddc6001",
+            "commit:94bf90dac5f71693d8d35cd50c436a6f5580c59b",
+            "commit:c74c9e5fee40677403f719cad480523f5ed7981a",
+            "commit:cdd7e6dc431677437cd851acb0040f4a4594bbf5",
+            "component:ui-theming",
+            "decision:add-dependabot-for-github-actions",
+            "decision:add-ui-theming",
+            "decision:implement-no-load-ui-for-performance",
+            "pr:410",
+            "tag:v0.24.0",
+            "tag:v0.6-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Hyper Mode is intended to improve UI performance by making subsequent actions instantaneous after an initial load [2]. The implementation was meant to provide more performance, security, and a more beautiful user interface [2].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/fact-015.0.json"
+        }
+      ]
+    },
+    {
+      "id": "multihop-001",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.24.0",
+            "tag:v0.24.0"
+          ],
+          "retrieved_pack": [
+            "commit:10cde58363fbdb8742bdaa1fd19e0a64bfc98e5c",
+            "commit:2cca0b1e76c628e15c0e0dc90c655267761a3582",
+            "commit:7c4210cad25e67495874d6da79a022f07babae3f",
+            "commit:7eea37f91abc19f04dea8a1e46b7c077451d29d6",
+            "commit:b5ac2f80786eddf56bd5a1b75bc5f4bac32fa3e9",
+            "commit:e6b31e2550bacfb42b174d49f1aef154c0c1551c",
+            "decision:add-drag-drop-support-to-document-editor",
+            "decision:add-issue-widget-to-document-editor",
+            "decision:add-link-preview-feature",
+            "decision:add-text-alignment-to-editor",
+            "decision:consolidate-editor-package-structure",
+            "decision:scope-drag-drop-to-rich-text-editor",
+            "discussion:659",
+            "tag:v0.24.0"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The decision to add text alignment to the editors is recorded as `decision:add-text-alignment-to-editor` [1]. The rationale for this feature was to enable users to create more professional-looking content by providing standard text alignmen",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/multihop-001.0.json"
+        }
+      ]
+    },
+    {
+      "id": "multihop-002",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "tag:v0.24.0",
+            "tag:v0.24.0",
+            "tag:v0.24.0"
+          ],
+          "retrieved_pack": [
+            "commit:2cca0b1e76c628e15c0e0dc90c655267761a3582",
+            "commit:4e8bfe002467a4e597b77a4b4ed63eb9166b2b04",
+            "commit:b5ac2f80786eddf56bd5a1b75bc5f4bac32fa3e9",
+            "commit:e6b31e2550bacfb42b174d49f1aef154c0c1551c",
+            "commit:f001bfa275a714c49cfebbd0b0bb26431e84dea1",
+            "component:pages-editor-callouts",
+            "decision:add-callouts-to-editor",
+            "decision:add-issue-widget-to-document-editor",
+            "decision:add-link-preview-feature",
+            "decision:convert-legacy-html-pages-to-binary",
+            "decision:implement-feature-flagging-system",
+            "decision:scope-drag-drop-to-rich-text-editor",
+            "discussion:659",
+            "tag:v0.24.0"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The feature that added callouts to the pages editor is recorded under the decision `decision:add-callouts-to-editor` [3, 7]. This feature allows users to add notes, warnings, and tips to highlight important information in their documentatio",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/multihop-002.0.json"
+        }
+      ]
+    },
+    {
+      "id": "multihop-003",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:5bf10e9a1d33066ce166f03b62f8936f8c98bfaf",
+            "discussion:550",
+            "pr:2"
+          ],
+          "retrieved_pack": [
+            "commit:1ba8e6ae4951ad9f9cdcc845195a8056ad1ad910",
+            "commit:5bf10e9a1d33066ce166f03b62f8936f8c98bfaf",
+            "commit:ebb06806ceee0653d8f70f4cb0728099e1227c6a",
+            "component:code-block-extension",
+            "component:code-inline-extension",
+            "component:core-activity",
+            "component:list-keymap-extension",
+            "component:project-covers",
+            "decision:direct-import-of-sqlalchemy-components",
+            "decision:pin-poetry-core-to-git-commit-for-ci-fix",
+            "discussion:550",
+            "pr:2",
+            "tag:v0.3.1-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Based on the evidence provided, there is no decision that covers a general refactoring of core packages and UI components.\n\nThe available evidence describes more specific decisions:\n*   A decision was made to persist focus after converting ",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/multihop-003.0.json"
+        }
+      ]
+    },
+    {
+      "id": "multihop-004",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "commit:05a76c5ee304f082cea371f7963444a42d177a40",
+            "commit:0f430a078c6667cdd106efe0ad7bb128acc56da1",
+            "commit:5d141e4f2a7ad6da973bb96c60ac6aeac02598e0",
+            "commit:6838b566db7dfb979eaa48e87b9a277d8e031977",
+            "commit:785a6e887146d3b4ee9dc90b5d6c67315c0a5308",
+            "commit:b46a7481ae00a1c192e990ca5154c4d0112256f4",
+            "commit:cb055d566bd8a5434f7f2cecbac04c1d6e748ceb",
+            "commit:eb134fc48c66a358a2324f14b254aac4b52d3317",
+            "decision:sticky-gantt-chart-block-names"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not describe a specific named decision, but it shows a commit that enables blocks to have a single date on block charts [2, 3]. This functionality was introduced via a cherry-picked commit [2, 3].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/multihop-004.0.json"
+        }
+      ]
+    },
+    {
+      "id": "multihop-005",
+      "slice": "fact",
+      "must_refuse": false,
+      "cite_precision_median": 0.25,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.25,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:40d191c602096a7a8cde864be795c8f506f57ca4",
+            "commit:40d191c602096a7a8cde864be795c8f506f57ca4",
+            "commit:66d9679f333b9aa1320eac9d9d5b9017a7852ede",
+            "commit:40d191c602096a7a8cde864be795c8f506f57ca4"
+          ],
+          "retrieved_pack": [
+            "commit:06c39e7c1ca6b4ed8574dd34d01d6a92db10a96b",
+            "commit:40d191c602096a7a8cde864be795c8f506f57ca4",
+            "commit:428ed55a1a64ceb5210436ba60678d672aa641b3",
+            "commit:66d9679f333b9aa1320eac9d9d5b9017a7852ede",
+            "commit:b092db866a582e49ae24d5aa9e2b226148314a69",
+            "component:@plane/utils",
+            "component:auth-utils",
+            "component:plane-helpers-package",
+            "component:space",
+            "component:utils-package",
+            "component:web/helpers",
+            "decision:centralize-helpers-in-plane-utils",
+            "discussion:1566"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The decision was made to centralize helper functions into the `@plane/utils` package [4]. The rationale for this was to create a shared utility package for common helper functions in order to reduce code duplication and improve maintainabil",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/multihop-005.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-001",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "issue:20"
+          ],
+          "retrieved_pack": [
+            "decision:add-pre-commit-hooks-sqlmodel",
+            "issue:20",
+            "pr:1107",
+            "pr:1360",
+            "pr:391",
+            "pr:393",
+            "pr:396",
+            "pr:416",
+            "pr:553",
+            "pr:560",
+            "pr:775",
+            "pr:922",
+            "tag:0.0.7"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state which commit or pull request closed issue number 9. The evidence mentions other issues, such as issue #20, which was related to setting a PostgreSQL schema [5].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-001.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-002",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "decision:add-pre-commit-hooks-sqlmodel",
+            "issue:20",
+            "pr:1107",
+            "pr:128",
+            "pr:1360",
+            "pr:393",
+            "pr:396",
+            "pr:416",
+            "pr:553",
+            "pr:560",
+            "pr:775",
+            "pr:922",
+            "tag:0.0.7"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state which commit or pull request closed issue number 152. The evidence mentions other issues and pull requests, such as issue #20 and various pull requests for dependency updates, but does not contain inform",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-002.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-003",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:a027135f92a994fd72623f3a9554079c219951b8"
+          ],
+          "retrieved_pack": [
+            "commit:a027135f92a994fd72623f3a9554079c219951b8",
+            "decision:add-pre-commit-hooks-sqlmodel",
+            "discussion:851",
+            "issue:20",
+            "issue:374",
+            "pr:1107",
+            "pr:1360",
+            "pr:416",
+            "pr:553",
+            "pr:560",
+            "pr:922",
+            "tag:0.0.7"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state which commit or pull request closed issue number 25.\n\nHowever, the evidence does show that commit `a027135f92a994fd72623f3a9554079c219951b8` merged **pull request** #25 [7].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-003.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-004",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "decision:add-pre-commit-hooks-sqlmodel",
+            "issue:1150",
+            "issue:20",
+            "issue:222",
+            "pr:1107",
+            "pr:1360",
+            "pr:416",
+            "pr:471",
+            "pr:553",
+            "pr:560",
+            "pr:58",
+            "pr:922",
+            "tag:0.0.7"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state which commit or pull request closed issue number 54. The evidence mentions other issues, such as issue #20, issue #1150, and issue #222, but does not contain any information about issue #54 [4, 6, 8].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-004.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-005",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "issue:20",
+            "issue:71",
+            "pr:1089",
+            "pr:1107",
+            "pr:1207",
+            "pr:1261",
+            "pr:1286",
+            "pr:1360",
+            "pr:553",
+            "pr:560",
+            "pr:775",
+            "pr:922",
+            "tag:0.0.7"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state which commit or pull request closed issue number 76. The evidence mentions other issues, such as issue 71 and issue 20, but does not contain any information about issue 76 [1, 6].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-005.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-006",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 0.0,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 0.0,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "issue:20"
+          ],
+          "retrieved_pack": [
+            "decision:add-pre-commit-hooks-sqlmodel",
+            "issue:20",
+            "pr:1107",
+            "pr:1360",
+            "pr:391",
+            "pr:393",
+            "pr:396",
+            "pr:416",
+            "pr:553",
+            "pr:560",
+            "pr:775",
+            "pr:922",
+            "tag:0.0.7"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state which commit or pull request closed issue number 7. The evidence does mention issue #20, for which a decision was made to set a PostgreSQL schema [5].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-006.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-007",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:81c0d374c2289defdeb53f57634edb0da79e5aa6"
+          ],
+          "retrieved_pack": [
+            "commit:378199c663bb33e02704fe6c75e97bae9dd3ebbd",
+            "commit:81c0d374c2289defdeb53f57634edb0da79e5aa6",
+            "commit:9b0949148f47b5fbfdb40ef0b0ba145eea98c395",
+            "commit:f12320874e716a3e8008b8d36b4621b05c3af0a8",
+            "issue:289",
+            "pr:1022",
+            "pr:423",
+            "pr:424",
+            "pr:662"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state who authored the commit \"dev: imports errors on git casing issues\".\n\nThe evidence does show that a commit with this description modified the file `apps/app/layouts/app-layout.tsx` [1].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-007.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-008",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:07d0497b4b333bb71e979d9af45c262feee4a0d0"
+          ],
+          "retrieved_pack": [
+            "commit:07d0497b4b333bb71e979d9af45c262feee4a0d0",
+            "commit:4f51307958bef807017a3573a1bdeeaf8602251d",
+            "commit:63b6150b9ce7509cc6183318d478121b4f9ea261",
+            "commit:c9ffc9465f7e0a8e8063106f72833e7721000a0e",
+            "commit:dff12729c05ac8301ffc0491da170bb79f777846",
+            "decision:enter-key-submits-comment",
+            "pr:920",
+            "pr:927",
+            "tag:v0.15-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state who authored the commit \"Fix: Enable Enter key to select existing labels in label selector\".\n\nThe evidence does show that this commit modified the file `apps/web/core/components/issues/issue-detail/label",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-008.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-009",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:172f39e231c363f326cdbd118cfa31283951b965"
+          ],
+          "retrieved_pack": [
+            "commit:172f39e231c363f326cdbd118cfa31283951b965",
+            "commit:1c43d313d1fc2a497a85f527f0b1686a6246fc8d",
+            "commit:3ad45405242aac49f11fa35c99e55bb03415433c",
+            "commit:957e981168d2fa5c5ed17cf659da981373f33759",
+            "commit:983769a944ca484d074ddf09f30b13a3dc927d60",
+            "commit:9dee18f5fe07b36dba530d2306f3de4fcbcb3000",
+            "commit:da91bf3cdc4674b5e9edcba9243dc15c0e505432",
+            "decision:consolidate-getissues-in-issue-service",
+            "discussion:908"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state who authored the commit \"fix: adding service token throttle class\".\n\nThe evidence does show that this commit modified the file `apiserver/plane/api/rate_limit.py` [1].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-009.0.json"
+        }
+      ]
+    },
+    {
+      "id": "structural-010",
+      "slice": "structural",
+      "must_refuse": false,
+      "cite_precision_median": 1.0,
+      "hit_at_8": true,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": 1.0,
+          "hit_at_8": true,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:a5a449680086da76d3f435e2713d3e2abb00ec22"
+          ],
+          "retrieved_pack": [
+            "commit:146b63f1ad17de433271b12673013c466ca5cbce",
+            "commit:1d314dd25faf4de43ba6e6a8b0d5f69455bdd103",
+            "commit:51fba04226b4b406bfc3b793eecc8331a8394306",
+            "commit:6e435df613ca7cbc58dcac6159f8207cb87bebf5",
+            "commit:7fda07c7a0203a5a352fd8600ecd00cdc173bb98",
+            "commit:9b0949148f47b5fbfdb40ef0b0ba145eea98c395",
+            "commit:a5a449680086da76d3f435e2713d3e2abb00ec22",
+            "commit:d857580465a58b4a48bf4394f25b928da1e85972"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state who authored the commit \"fix: adding throttling at base api view for external apis\".\n\nThe evidence does show that this commit modified the file `apiserver/plane/api/views/base.py` [1].",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/structural-010.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-001",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:963eeb0a8c2d7fb3c5d0bd64c2fb47aa39784906",
+            "commit:acab63a0a69246f5fdf7916a42754273b1a57a00",
+            "commit:c9b1a2590a0c487703264a4ddffd7ad65db06e37",
+            "discussion:1955"
+          ],
+          "retrieved_pack": [
+            "commit:269ac6938005e96534340f7a620a642d2eb3889b",
+            "commit:7b5eea872249c6dcfe3ea1abf76671a7d049b3d8",
+            "commit:963eeb0a8c2d7fb3c5d0bd64c2fb47aa39784906",
+            "commit:acab63a0a69246f5fdf7916a42754273b1a57a00",
+            "commit:c9b1a2590a0c487703264a4ddffd7ad65db06e37",
+            "component:issue-state-management",
+            "decision:abstract-reaction-logic-into-hooks",
+            "decision:allow-draft-cycles",
+            "decision:preserve-state-on-nested-sqlmodels",
+            "decision:use-mobx-for-i18n-state",
+            "decision:use-mobx-for-user-state-management",
+            "decision:use-runinaction-for-assignment",
+            "discussion:1955",
+            "issue:130",
+            "tag:v0.3.1-dev"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not contain information about why Kubernetes adopted etcd for storing cluster state.\n\nThe evidence discusses state management for a different software application, covering topics such as:\n*   Using MobX for user ",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-001.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-002",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": false,
+      "invented_majority": false,
+      "superseded_any": false,
+      "refused_majority": true,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": false,
+          "superseded_hit": false,
+          "refused": true,
+          "cited_keys": [],
+          "retrieved_pack": [
+            "commit:1adbe38bf67be109bc33381e22d0e74bd14917a4",
+            "commit:416eb28cf8992f7c07c73e35d8c34212dd2c246b",
+            "commit:a09b9cf3757d30d3f953091ac24342b787ce7558",
+            "commit:b349de556a68d6be07282cd9ddfb7edcef729ded",
+            "commit:fa325749d0332b3e22cf62b8cea5d61616d7d4f8",
+            "discussion:1538",
+            "issue:332",
+            "issue:340"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not contain information about the default Redis eviction policy in AWS ElastiCache.\n\nThe evidence mentions fixes and updates related to the AWS default region [1, 2, 3, 4] and discusses issues with IAM authenticat",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-002.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-003",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:cafb303b26af34f800a04242e5c7f54cf5773006"
+          ],
+          "retrieved_pack": [
+            "commit:29616e99f79a9c634173df6fe69cee1b029c9572",
+            "commit:3527a7b87ea105f5edbc7e1ed1fcb2c688f0e93f",
+            "commit:4b2cc27cf9d1fd51bf348d91d5285e399a7e870f",
+            "commit:b18aa4556691dd1ced4fc8a43548d4bf65cd64ac",
+            "commit:cafb303b26af34f800a04242e5c7f54cf5773006",
+            "decision:refactor-emoji-picker-with-lucide-react",
+            "discussion:1258",
+            "discussion:1283",
+            "pr:474"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not state when React became the default for concurrent rendering in the Next.js App Router.\n\nOne piece of evidence mentions an update to the \"app router initilization logic,\" but it does not provide any further de",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-003.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-004",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:9cfde896b3d3229f37569c3c9adfa9a7c2f96cbe"
+          ],
+          "retrieved_pack": [
+            "commit:193e66e96c399447b83820c389d3f3aa3f80e50c",
+            "commit:29616e99f79a9c634173df6fe69cee1b029c9572",
+            "commit:9cfde896b3d3229f37569c3c9adfa9a7c2f96cbe",
+            "commit:9f41e92d21359f75b461c533b0d860b1a1d9f705",
+            "commit:c80c76b88239592cf0d5b894915dc94eeb8a6d43",
+            "commit:caa5e89002b7bbbb9855b43088c288939dc879ed",
+            "commit:d33fcd9b03e7297f5a45b20b832e6d299ae15993",
+            "commit:eac531fcc4039bd63bcd329c53f2b0071926d52e",
+            "decision:refactor-emoji-picker-with-lucide-react"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The evidence for the change \"[WEB-5134] refactor: update web ESLint configuration and refactor imports...\" shows that it involved modifying files as part of updating the ESLint configuration for the `web` application.\n\nThe specific modifica",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-004.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-005",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:34e6ef0d8d6a99dd524daf1ce5fd6025e9a114fc",
+            "discussion:772",
+            "commit:30434b4761530b166572a5e50586b5d86fe4b0fb",
+            "commit:83f73304ef28ef209c254b12eca9088eeb515ad9",
+            "commit:c6e5c16b1dfd488f2a875d67e430540e15e8cf50",
+            "pr:436"
+          ],
+          "retrieved_pack": [
+            "commit:30434b4761530b166572a5e50586b5d86fe4b0fb",
+            "commit:34e6ef0d8d6a99dd524daf1ce5fd6025e9a114fc",
+            "commit:83f73304ef28ef209c254b12eca9088eeb515ad9",
+            "commit:b32220693372f78ac50080260f558664ec3df9ff",
+            "commit:c6e5c16b1dfd488f2a875d67e430540e15e8cf50",
+            "component:field-api",
+            "decision:api-change-for-raw-sql-execution",
+            "decision:refactor-api-and-webhook-endpoints-2861",
+            "decision:refactor-instance-type-for-registration-c6e5c16b",
+            "decision:use-intl-api-for-timezone-detection",
+            "discussion:772",
+            "pr:1293",
+            "pr:436"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Based on the evidence provided, there is no information about a change titled \"feat(api): \u6dfb\u52a0\u7b80\u5355\u6d4b\u8bd5API\u548c\u5065\u5eb7\u68c0\u67e5\u63a5\u53e3\".\n\nThe available evidence describes other API-related changes, including:\n*   A refactor of API and webhook endpoints to improve main",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-005.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-006",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:e94718c086f1728f31f78873fbe6f75b24c615b0",
+            "commit:e94718c086f1728f31f78873fbe6f75b24c615b0",
+            "commit:e94718c086f1728f31f78873fbe6f75b24c615b0"
+          ],
+          "retrieved_pack": [
+            "commit:1ba251f28b8f8cdcba2ab5226d1c6cd606c2312b",
+            "commit:1bddaf75b2bb4c7ed355c85eca1490bbb71d2953",
+            "commit:2f23dcc9ebfb213c34c16aa4c8aaf889cfeca02f",
+            "commit:e94718c086f1728f31f78873fbe6f75b24c615b0",
+            "component:issue-activity",
+            "component:issue-properties-view",
+            "component:list-view",
+            "component:peek-view",
+            "decision:api-change-for-raw-sql-execution",
+            "discussion:1389",
+            "discussion:772",
+            "pr:501",
+            "pr:510"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The evidence does not contain a change titled \"fix: suspended use view\", but it does mention a similar change titled \"fix: suspended user filter\" [5]. This fix is a commit that modifies the file `apps/web/core/store/member/utils.ts` [5]. No",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-006.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-007",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:ddf857a2a4d5c50d0a4e3627c17f7a6bb74d668a",
+            "commit:69f972afaa8624dc9c8453ce987c3f1b97280230"
+          ],
+          "retrieved_pack": [
+            "commit:34337f90c108378926d4bf6a81faad4c15e10c88",
+            "commit:63d025cbf45cf753f9685469ed30ab072fd24c9a",
+            "commit:69f972afaa8624dc9c8453ce987c3f1b97280230",
+            "commit:75ea97f9dd538de68b461b9bd3a56c1e6eb496f3",
+            "commit:96edea9a32bcb06563f362143f9b1a0fb6451f19",
+            "commit:9fc0fa79a1948c06047c69e6a0aa22d785799a9d",
+            "commit:d4705e16497e6dd4b1ab5da72ec5dd6898f60bc4",
+            "commit:ddf857a2a4d5c50d0a4e3627c17f7a6bb74d668a"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Evidence exists for two commits titled \"chore: added extra validations\" [2, 3]. These commits modified files related to analytics and issue descriptions.\n\nThe specific changes include:\n*   A modification to `apiserver/plane/app/views/analyt",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-007.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-008",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:1ac3328b423b6f778a3463acea195fdf799a2f62",
+            "commit:9791446b2bdac21dce477b75813c3f498bdce5b5"
+          ],
+          "retrieved_pack": [
+            "commit:1ac3328b423b6f778a3463acea195fdf799a2f62",
+            "commit:2b570da890d9ea6c5249c64b57a177ad5d8736b6",
+            "commit:9791446b2bdac21dce477b75813c3f498bdce5b5",
+            "commit:d6a6242a5be18ffc9ed648f3fbfe697df85884fb",
+            "commit:d8bbdc14ac0c6996541e92fbcbe3d4ebba7e2496",
+            "commit:eace4361f7a69eadc45fc0b965b8aeb4613309aa",
+            "pr:1559",
+            "pr:677"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The evidence shows two commits related to removing comments. One commit is titled \"chore: removed the frontend comment\" [2] and another is \"chore: comment removed\" [8].\n\n*   The commit `chore: removed the frontend comment` modified the file",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-008.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-009",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:529e6f4c6f4f270208eefc954a380f83c33fb46f",
+            "commit:aceee7d2e2bb3388832de20ff2c55996d137e072",
+            "commit:ebb06806ceee0653d8f70f4cb0728099e1227c6a"
+          ],
+          "retrieved_pack": [
+            "commit:10821c095d7d07119bf04e8c04520f8d202f472b",
+            "commit:1f261508fe1ca080457378c0c2a5460683a10cfa",
+            "commit:529e6f4c6f4f270208eefc954a380f83c33fb46f",
+            "commit:aceee7d2e2bb3388832de20ff2c55996d137e072",
+            "commit:cfe710d492e5a17b60cdd72fc3df88b4789f11cf",
+            "commit:ebb06806ceee0653d8f70f4cb0728099e1227c6a",
+            "component:profile-sidebar",
+            "component:sidebar-links-list",
+            "discussion:1362",
+            "discussion:1389"
+          ],
+          "invented_markers": [],
+          "answer_preview": "The provided evidence does not contain any information about the change titled \"[WEB-5092] feat: app sidebar enhancements (#7946)\".\n\nHowever, the evidence does describe other changes related to the application sidebar:\n*   UI enhancements a",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-009.0.json"
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-010",
+      "slice": "unanswerable",
+      "must_refuse": true,
+      "cite_precision_median": null,
+      "hit_at_8": false,
+      "invented_any": true,
+      "invented_majority": true,
+      "superseded_any": false,
+      "refused_majority": false,
+      "disagreement": {
+        "cite_precision_range": 0.0,
+        "hit_flip": false,
+        "invented_flip": false
+      },
+      "reps": [
+        {
+          "ok": true,
+          "error": null,
+          "cite_precision": null,
+          "hit_at_8": false,
+          "invented": true,
+          "superseded_hit": false,
+          "refused": false,
+          "cited_keys": [
+            "commit:68b422dc925d27d581c071aea45cdbfff10c9bc4",
+            "commit:13c5b88b0529ab021d6b5fce7791a4a23eba32a8"
+          ],
+          "retrieved_pack": [
+            "commit:13c5b88b0529ab021d6b5fce7791a4a23eba32a8",
+            "commit:6268acbe73f998bb94d270f0602b3a8f0246ef57",
+            "commit:68b422dc925d27d581c071aea45cdbfff10c9bc4",
+            "commit:849b7b7bf33c17cb51fe8a716304c77e73f24d14",
+            "commit:f893629795708e7f5385e013a95840ad0a57a98c",
+            "decision:auto-hide-drag-handle",
+            "decision:raise-error-on-capital-table-kwarg",
+            "discussion:1362",
+            "discussion:1499",
+            "discussion:704"
+          ],
+          "invented_markers": [],
+          "answer_preview": "Evidence for the change to handle a \"body too large\" error shows that middleware was added to address the issue [3, 4]. This was accomplished through two commits:\n\n*   One commit added middleware to `apps/api/plane/middleware/logger.py` [3]",
+          "rep": 0,
+          "path": "evals/runs/20260905T181553Z/raw/unanswerable-010.0.json"
+        }
+      ]
+    }
+  ]
+}

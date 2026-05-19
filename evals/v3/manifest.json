@@ -1,0 +1,61 @@
+{
+  "created_at": "2026-09-06T14:21:17.215876+00:00",
+  "git_rev": "2a05c2f4dfc210203cca1251d1151738346ffb9a",
+  "target_repo": "tiangolo/sqlmodel",
+  "repository_nodes": [
+    "tiangolo/sqlmodel"
+  ],
+  "models": {
+    "extraction": "gemini-2.5-pro",
+    "rag": "gemini-2.5-pro",
+    "parser": "gemini-2.5-flash"
+  },
+  "corpus": {
+    "timeline_path": "/home/dev/Projects/layer10/data/unified/timeline.jsonl",
+    "timeline_sha256": "a34e66601b6db04aaab08de68ed6e64214a83dacd113ea5fc8470a5dcb4e875b",
+    "raw_events_sha256": "3b80bd343b081f50823e4918436dc06676e10eac58b912fb7bd3dccf9eed63b0",
+    "last_processed_index": 6701
+  },
+  "graph": {
+    "nodes": {
+      "Commit": 4586,
+      "FileNode": 1402,
+      "Person": 1242,
+      "PullRequest": 1125,
+      "Branch": 906,
+      "DesignDecision": 880,
+      "Discussion": 601,
+      "Component": 450,
+      "Issue": 353,
+      "Tag": 41,
+      "Label": 23,
+      "Repository": 1
+    },
+    "relationships": {
+      "MODIFIES": 16285,
+      "AUTHORED_BY": 6694,
+      "REFERENCES": 3401,
+      "DECISION_FOR": 845,
+      "INTRODUCES": 380,
+      "REVIEWED_BY": 356,
+      "RENAMES": 257,
+      "BELONGS_TO": 235,
+      "SUPERSEDES": 131,
+      "DEPENDS_ON": 75,
+      "CLOSES": 36,
+      "DEPRECATES": 28,
+      "REVERTS": 11
+    }
+  },
+  "gold": {
+    "path": "evals/v3/gold_v3.jsonl",
+    "sha256": "dd7cf37f4e997573c8b5b32f2884c58b1792040333795faf2c75cd5cdc652738",
+    "n_items": 52,
+    "slices": {
+      "fact": 20,
+      "current": 10,
+      "structural": 10,
+      "unanswerable": 12
+    }
+  }
+}

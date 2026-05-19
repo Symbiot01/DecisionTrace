@@ -1,0 +1,37 @@
+{
+  "before": {
+    "slice": "fact+current",
+    "n": 30,
+    "mean_of_medians": 0.3778,
+    "perfect_rate": 0.2667,
+    "wilson_95_perfect": [
+      0.1418,
+      0.4445
+    ],
+    "X_for_cv": 37.8,
+    "invented": 9,
+    "refusal": 0.1
+  },
+  "after_gold_v1": {
+    "X": 43.3,
+    "invented": 5,
+    "superseded": 0,
+    "refusal": 0.5
+  },
+  "final_gold_v2": {
+    "protocol": "fact/current/structural from after_metrics (gold.jsonl); unanswerable from gold_v2 re-run",
+    "n_items": 50,
+    "cite_precision_X_pct": 43.3,
+    "cite_n": 30,
+    "invented_source_ids": 0,
+    "invented_n": 50,
+    "superseded_citations": 0,
+    "superseded_n": 10,
+    "refusal_accuracy": 1.0,
+    "refusal_n": 10,
+    "hit_at_8": 0.55,
+    "span_alignment": 0.8,
+    "print_zeros": true,
+    "unanswerable_failures": []
+  }
+}
